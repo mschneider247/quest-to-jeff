@@ -3,4 +3,14 @@ $primary-background: pink;
 
 body {
   background-color: $primary-background;
+  display: grid;
+  grid-template-areas: 
+  'header'
+  'player-info'
+  'round'
+  'questions'
 }
+
+
+
+
