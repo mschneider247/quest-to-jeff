@@ -34,23 +34,14 @@ describe('Game', () => {
     expect(game.players.length).to.equal(3);
   })
 
-  it.only('should return roundCounter has increased by one', () => {
-    game.getFourCategories()
-    // game.startRound()
-    // expect(game.roundCounter).to.equal(1);
-    expect(game.startRound()).to.eql([])
+  it('should return roundCounter has increased by one', () => {
+    game.startRound()
+    expect(game.roundCounter).to.equal(1);
   })
 
-  it('should be a function', () => {
-    expect(game.getFourCategories()).to.eql([]);
-  })
-
-  it('should be a function', () => {
-    expect(game.getFourCategories()).to.eql([]);
-  })
-
-  it('should be a function', () => {
-    expect(game.getFourCategories()).to.eql([]);
+  it.only('should return the winner', () => {
+    game.getPlayers('Amanda', 'Foster', 'Matt');
+    expect(game.displayWinner()).to.eql({ id: 1, name: 'Amanda', score: 0 });
   })
 
 })

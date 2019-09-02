@@ -10,6 +10,7 @@ class Game {
     this.players = [];
     this.roundCounter = 0; // goes up to 3
     this.fourCategories = [];
+    this.round;
   }
 
   getFourCategories() { 
@@ -32,21 +33,17 @@ class Game {
   }
 
   startRound() {
-    // if round is less than 3
-    // increase roundcounter by one
-    // each players score is at 0
-    // display starting score
-    // instantiate new class of Round, passing in the array
-    // of this.fourCategories
-    // let round = new Round(this.fourCategories);
-    // display current round with domUpdates
+    if (this.roundCounter < 3) {
+      this.roundCounter++
+      this.round = new Round(this.fourCategories);
+      // append round on domUpdates
+    }
   }
 
   displayWinner() {
-    // sort score from highest to lowest of the players array
-    // player at index 0 is the winner
+    let findWinner = this.players.sort((a, b) => b.score - a.score).shift();
     // display winner on dom with domUpdates 
-    // return player at index 0
+    return findWinner; // may break test once we get scores
   }
 
 } 
