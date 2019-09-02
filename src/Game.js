@@ -1,8 +1,9 @@
- 
+import Player from '../src/Player';
+import Round from '../src/Round';
 
 class Game {
   constructor(data) {
-//   constructor(response_code, categories, clues ) {
+    //   constructor(response_code, categories, clues ) {
     // Object.assign(this, { response_code, categories, clues });
     this.categories = data.categories
     this.clues = data.clues;
@@ -12,18 +13,22 @@ class Game {
   }
 
   getFourCategories() { 
-    // from the this.categories randomly select four categories
-    // use the category value to then find them in the clues
-    // use a conditional to push up to four into the array
-    // if fourCategories is less than or equal to 4
-    // push random category in
+    let categories = Object.keys(this.categories);
+    let categoriesArray = categories.map((category) => {
+      return {
+        category, id: this.categories[category]
+      }
+    })
+    let randomGenerator = categoriesArray.sort(() => Math.random() - 0.5);
+    this.fourCategories = randomGenerator.splice(0, 4);
   }
 
   getPlayers(p1, p2, p3) {
-    // instantiate all new players with id and name
-    // push the players into this.players
+    let player1 = new Player(1, p1);
+    let player2 = new Player(2, p2);
+    let player3 = new Player(3, p3);
+    this.players.push(player1, player2, player3);
     // append players on the dom with domUpdates
-  
   }
 
   startRound() {
@@ -33,6 +38,7 @@ class Game {
     // display starting score
     // instantiate new class of Round, passing in the array
     // of this.fourCategories
+    // let round = new Round(this.fourCategories);
     // display current round with domUpdates
   }
 
