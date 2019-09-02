@@ -3,4 +3,42 @@ $primary-background: pink;
 
 body {
   background-color: $primary-background;
+  display: grid;
+  grid-template-areas: 
+  'header'
+  'player-info'
+  'round'
+  'questions'
+}
+
+header {
+  grid-area: header;
+  background-color: purple;
+}
+
+.player {
+  grid-area: player-info;
+  background-color: yellow;
+  display: flex;
+}
+
+.round {
+  grid-area: round;
+  background-color: orange;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.questions {
+  grid-area: questions;
+  background-color: green;
+  display: flex;
+}
+
+.round__div,
+.round__point--container,
+.questions__current--question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
