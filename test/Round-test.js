@@ -1,12 +1,16 @@
-import chai from 'chai'
-const expect = chai.expect
+import chai from 'chai';
+const expect = chai.expect;
+const spies = require('chai-spies');
+chai.use(spies);
 import Round from '../src/Round.js'
-import currentCategories from '../test/test-data/sample-categories-data.js'
-var round;
-var data = currentCategories
+import Game from '../src/Game.js'
+import sampleData from '../src/data/sample-data';
+var round, game;
+
 
 beforeEach(() => {
-  round = new Round(data);
+  game = new Game(sampleData)
+  round = new Round(game.getCluesForRound());
 });
 
 describe('Round', () => {
@@ -16,7 +20,7 @@ describe('Round', () => {
   })
 
   it('Should have access to current categories data', () => {
-    expect(round.currentClues).to.equal(data);
+    expect(round.currentClues).to.be.an('array');
   })
 
   it('Should be able to assign a random turn as a daily double', () => {
@@ -28,13 +32,9 @@ describe('Round', () => {
   })
 
   it('Should return an individual clue object when given a category and point value', () => {
-    expect(round.getClue(9, 200)).to.eql({
-      question: 'Government money that a congressman steers toward his home district',
-      pointValue: 200,
-      answer: 'pork',
-      categoryId: 9
-    });
-    expect(round.currentClues.length).to.equal(48);
+    chai.spy.on(round, 'getClue', () => {})
+    round.getClue();
+    expect(round.getClue).to.have.been.called(1)
   })
 
   it('Should return a boolean whether the turn is a daily Double', () => {
