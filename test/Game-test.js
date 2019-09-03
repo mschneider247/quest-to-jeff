@@ -24,7 +24,8 @@ describe('Game', () => {
     expect(game.roundCounter).to.equal(0);
   })
     
-  it.only('should return an array of four random categories', () => {
+  it('should return an array of four random categories', () => {
+    game.getCluesForRound();
     expect(game.getFourCategories().length).to.equal(4);
   })
     
