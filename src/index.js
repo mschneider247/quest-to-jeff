@@ -16,7 +16,11 @@ import Game from './Game';
 const game = new Game(data);
 
 console.log('before', game)
-game.startRound(game);
+game.startRound();
+
+console.log("did the score change?");
+console.log(game.players);
+
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
