@@ -16,10 +16,8 @@ import Game from './Game';
 const game = new Game(data);
 
 console.log('before', game)
-game.startRound();
+game.startRound(game);
 
-console.log("did the score change?");
-console.log(game.players);
 
 
 
