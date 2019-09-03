@@ -9,7 +9,6 @@ class Game {
     this.clues = data.clues;
     this.players = [];
     this.roundCounter = 0; // goes up to 3
-    this.fourCategories = [];
     this.round;
   }
 
@@ -21,7 +20,8 @@ class Game {
       }
     })
     let randomGenerator = categoriesArray.sort(() => Math.random() - 0.5);
-    this.fourCategories = randomGenerator.splice(0, 4);
+    return randomGenerator.splice(0, 4);
+
   }
 
   getPlayers(p1, p2, p3) {
