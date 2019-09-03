@@ -2,15 +2,15 @@ import chai from 'chai';
 const expect = chai.expect;
 const spies = require('chai-spies');
 chai.use(spies);
-import Round from '../src/Round.js'
 import Game from '../src/Game.js'
+import Round from '../src/Round.js'
 import sampleData from '../src/data/sample-data';
 var round, game;
 
 
 beforeEach(() => {
   game = new Game(sampleData)
-  round = new Round(game.getCluesForRound());
+  round = new Round(game.getCluesForRound(), game.players[0]);
 });
 
 describe('Round', () => {
@@ -39,5 +39,10 @@ describe('Round', () => {
 
   it('Should return a boolean whether the turn is a daily Double', () => {
     expect(round.checkDailyDouble()).to.be.an('boolean');
+  })
+
+  it.only('Should do things with a player', () => {
+    round.nextPlayer(game)
+    // expect(round.checkDailyDouble()).to.be.an('boolean');
   })
 })
