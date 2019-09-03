@@ -40,12 +40,16 @@ class Game {
     // append players on the dom with domUpdates
   }
 
-  startRound(game) {
+  startRound() {
     if (this.roundCounter < 3) {
+      console.log("Hey this is a new round!")
+      console.log("Current Round===", this.roundCounter);
       this.roundCounter++
-      let round = new Round(this.getCluesForRound(), this.players[0], game);
-      console.log('ROUND: ', round)
-      console.log('PLAYER: ', round.nextPlayer(game))
+      let round = new Round(this.getCluesForRound(), this.players[0]);
+      console.log(round);
+      round.turn()
+      
+
       // append round on domUpdates
     }
   }

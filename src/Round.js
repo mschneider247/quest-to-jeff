@@ -2,12 +2,11 @@ import Clue from "./Clue";
 import Game from "./Game";
 
 class Round {
-  constructor(data, CurrentPlayer) {
+  constructor(data, currentPlayer) {
     this.currentClues = data;
     this.turnCounter = 1;
     this.dailyDouble = Math.ceil(Math.random() * 12);
-    this.currentPlayer = CurrentPlayer;
-    // this.game = game;
+    this.currentPlayer = currentPlayer;
     // console.log('GAME:', this.game)
   }
 
@@ -25,17 +24,32 @@ class Round {
   }
 
   turn() {
+    console.log("NEW TURN!");
+    console.log(this.currentClues);
+    // user input
     let clue = new Clue(this.getClue(9, 400), this.checkDailyDouble);
     let isCorrect = clue.checkAnswer('Pork');
     this.turnCounter ++;
-    // if isCorrect is true ++ playerscore with clue.pValue
-    // if isCorrect is false -- playerscore with clue.pValue
+    console.log(clue);
     
-    // nextPlayer()
+    if (isCorrect === true) {
+      this.currentPlayer.score += clue.pValue;
+    } else {
+      this.currentPlayer.score -= clue.pValue;
+    }
+    console.log("current player");
+    console.log(this.currentPlayer);
+    this.nextPlayer()
+    console.log("Current player score: ",this.currentPlayer.score);
+    console.log("player should update");
+    console.log(this.currentPlayer);
+    
+    
   }
 
   nextPlayer(game) {
     console.log('BEFORE', this.currentPlayer)
+    console.log(game);
 
 
     // console.log(Game.players[1])
