@@ -1,3 +1,5 @@
+import Round from "./Round";
+
 class Clue {
   constructor(clueObj, dailyDoubleBoolean) {
     this.question = clueObj.question
@@ -19,6 +21,10 @@ class Clue {
       return true;
     }
     return false;
+  }
+
+  updatePlayerScore(currentPlayer, userAnswer) {
+    this.checkAnswer(userAnswer) ? currentPlayer.score += this.pValue : currentPlayer.score -= this.pValue
   }
 
 }

@@ -7,7 +7,7 @@ class Game {
     // Object.assign(this, { response_code, categories, clues });
     this.categories = this.createCategoriesArray(data.categories)
     this.clues = data.clues;
-    this.players = [];
+    this.players = [{ name: 'Bob', id: 1, score: 0 }, { name: 'Bob\'s Mom', id: 2, score: 0 }, { name: 'Bob\'s Uncle', id: 3, score: 0 }];
     this.roundCounter = 0; // goes up to 3
   }
 
@@ -40,10 +40,12 @@ class Game {
     // append players on the dom with domUpdates
   }
 
-  startRound() {
+  startRound(game) {
     if (this.roundCounter < 3) {
       this.roundCounter++
-      let round = new Round(this.getCluesForRound());
+      let round = new Round(this.getCluesForRound(), this.players[0], game);
+      console.log('ROUND: ', round)
+      console.log('PLAYER: ', round.nextPlayer(game))
       // append round on domUpdates
     }
   }
