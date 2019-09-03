@@ -24,9 +24,8 @@ describe('Game', () => {
     expect(game.roundCounter).to.equal(0);
   })
     
-  it('should return an array of four random categories', () => {
-    game.getFourCategories();
-    expect(game.fourCategories.length).to.equal(4);
+  it.only('should return an array of four random categories', () => {
+    expect(game.getFourCategories().length).to.equal(4);
   })
     
   it('should return 3 players', () => {
@@ -39,7 +38,7 @@ describe('Game', () => {
     expect(game.roundCounter).to.equal(1);
   })
 
-  it.only('should return the winner', () => {
+  it('should return the winner', () => {
     game.getPlayers('Amanda', 'Foster', 'Matt');
     expect(game.displayWinner()).to.eql({ id: 1, name: 'Amanda', score: 0 });
   })
