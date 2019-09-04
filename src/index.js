@@ -25,18 +25,25 @@ game.startRound(game);
 
 $('#catagory-one').on('click', (event) => {
   event.preventDefault();
+  $(".round__point--container").not($(event.target).next()).slideUp();
   $(event.target).next().slideToggle('slow') 
 })
 
 $('#catagory-two').click(() => {
+  event.preventDefault();
+  $(".round__point--container").not($(event.target).next()).slideUp();
   $(event.target).next().slideToggle('slow');
 });
 
 $('#catagory-three').click(() => {
+  event.preventDefault();
+  $(".round__point--container").not($(event.target).next()).slideUp();
   $(event.target).next().slideToggle('slow');
 });
 
 $('#catagory-four').click(() => {
+  event.preventDefault();
+  $(".round__point--container").not($(event.target).next()).slideUp();
   $(event.target).next().slideToggle('slow');
 });
 
