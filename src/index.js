@@ -18,6 +18,27 @@ const game = new Game(data);
 console.log('before', game)
 game.startRound(game);
 
+// $('#catagory-one').click( () => {
+//   $(event.target).next().slideToggle('slow')
+// });
+
+
+$('#catagory-one').on('click', (event) => {
+  event.preventDefault();
+  $(event.target).next().slideToggle('slow') 
+})
+
+$('#catagory-two').click(() => {
+  $(event.target).next().slideToggle('slow');
+});
+
+$('#catagory-three').click(() => {
+  $(event.target).next().slideToggle('slow');
+});
+
+$('#catagory-four').click(() => {
+  $(event.target).next().slideToggle('slow');
+});
 
 
 
