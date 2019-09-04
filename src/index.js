@@ -18,6 +18,11 @@ const game = new Game(data);
 console.log('before', game)
 game.startRound(game);
 
+$(".header__btn").click(function () {
+    location.reload(true);
+});
+
+
 
 
 

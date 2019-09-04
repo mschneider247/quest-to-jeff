@@ -22,6 +22,18 @@ header {
   display: flex;
 }
 
+h1 {
+  font-family: cursive;
+}
+
+.player__points {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.player__name {
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
 .round {
   grid-area: round;
   background-color: orange;
