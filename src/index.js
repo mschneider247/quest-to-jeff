@@ -63,6 +63,6 @@ $('#catagory-four').click(() => {
 
 $(".header__btn").click(function () {
     location.reload(true);
-
+});
 
 console.log('This is the JavaScript entry file - your code begins here.');
