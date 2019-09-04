@@ -1,5 +1,6 @@
 import Player from '../src/Player';
 import Round from '../src/Round';
+import domUpdates from "./domUpdates";
 
 class Game {
   constructor(data) {
@@ -7,7 +8,7 @@ class Game {
     // Object.assign(this, { response_code, categories, clues });
     this.categories = this.createCategoriesArray(data.categories)
     this.clues = data.clues;
-    this.players = [{ name: 'Bob', id: 1, score: 0 }, { name: 'Bob\'s Mom', id: 2, score: 0 }, { name: 'Bob\'s Uncle', id: 3, score: 0 }];
+    this.players = [];
     this.roundCounter = 0; // goes up to 3
     this.round;
   }
@@ -38,7 +39,7 @@ class Game {
     let player2 = new Player(2, p2);
     let player3 = new Player(3, p3);
     this.players.push(player1, player2, player3);
-    // append players on the dom with domUpdates
+    domUpdates.appendPlayersToDOM(this.players);
   }
 
   startRound(game) {
@@ -47,8 +48,6 @@ class Game {
       this.round = new Round(this.getCluesForRound(), this.players[0]);
       this.round.turn();
       this.round.nextPlayer(game);
-      
-
       // append round on domUpdates
     }
   }
