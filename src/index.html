@@ -40,33 +40,54 @@
         <div class="round__div">
           <h3 class="round__current--title"> Current Round: <span class="round__current--num">1</span></h3>
           <p class="round__catagory--prompt">Select Catagory</p>
-          <h4 class="round__catagory" id="catagory-one">Catagory 1</h4>
-          <container class="round__point--container">
+          <button class="round__catagory" id="catagory-one">Catagory 1</button>
+          <container class="round__point--container" style="display: none;">
             <p class="round__point--prompt">Select Point Value</p>
             <p class="round__point--value" id="point-100">100</p>
             <p class="round__point--value" id="point-200">200</p>
             <p class="round__point--value" id="point-300">300</p>
             <p class="round__point--value" id="point-400">400</p>
           </container>
-          <h4 class="round__catagory" id="catagory-two">Catagory 2</h4>
-          <h4 class="round__catagory" id="catagory-three">Catagory 3</h4>
-          <h4 class="round__catagory" id="catagory-four">Catagory 4</h4>
-        </div>
-      </section>
-      <section class="questions">
-        <container class="questions__current--player">
-          <p class="questions__current--player--title">Current Player</p>
-          <h3 class="questions__current--player--name">Player 1</h3>
-        </container>
-        <container class="questions__current--question">
-          <p class="questions__current--question--daily--double">Daily Double</p>
-          <p class="questions__current--question--points"><span>400</span> Points</p>
-          <p class="questions__current--question--title">Question:</p>
-          <h4 class="questions__current--question--prompt">In a cling peach the flesh clings to this</h4>
-          <input class="questions__current--question--answer--input" type="text" placeholder="Type Answer">
-          <button class="questions__current--question--submit--btn" >Submit Answer</button>
-        </container>
-      </section>
+          <button class="round__catagory" id="catagory-two">Catagory 2</button>
+          <container class="round__point--container" style="display: none;">
+            <p class="round__point--prompt">Select Point Value</p>
+            <p class="round__point--value" id="point-100">100</p>
+            <p class="round__point--value" id="point-200">200</p>
+            <p class="round__point--value" id="point-300">300</p>
+            <p class="round__point--value" id="point-400">400</p>
+          </container>
+        <button class="round__catagory" id="catagory-three">Catagory 3</button>
+          <container class="round__point--container" style="display: none;">
+            <p class="round__point--prompt">Select Point Value</p>
+            <p class="round__point--value" id="point-100">100</p>
+            <p class="round__point--value" id="point-200">200</p>
+            <p class="round__point--value" id="point-300">300</p>
+            <p class="round__point--value" id="point-400">400</p>
+          </container>
+        <button class="round__catagory" id="catagory-four">Catagory 4</button>
+          <container class="round__point--container" style="display: none;">
+            <p class="round__point--prompt">Select Point Value</p>
+            <p class="round__point--value" id="point-100">100</p>
+            <p class="round__point--value" id="point-200">200</p>
+            <p class="round__point--value" id="point-300">300</p>
+            <p class="round__point--value" id="point-400">400</p>
+          </container>
+      </div>
+    </section>
+    <section class="questions">
+      <container class="questions__current--player">
+        <p class="questions__current--player--title">Current Player</p>
+        <h3 class="questions__current--player--name">Player 1</h3>
+      </container>
+      <container class="questions__current--question">
+        <p class="questions__current--question--daily--double">Daily Double</p>
+        <p class="questions__current--question--points"><span>400</span> Points</p>
+        <p class="questions__current--question--title">Question:</p>
+        <h4 class="questions__current--question--prompt">In a cling peach the flesh clings to this</h4>
+        <input class="questions__current--question--answer--input" type="text" placeholder="Type Answer">
+        <button class="questions__current--question--submit--btn" >Submit Answer</button>
+      </container>
+    </section>
    </main>
 
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->

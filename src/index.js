@@ -35,6 +35,31 @@ function gameStart(player1, player2, player3) {
   game.startRound(game);
 }
 
+// $('#catagory-one').click( () => {
+//   $(event.target).next().slideToggle('slow')
+// });
+
+
+$('#catagory-one').on('click', (event) => {
+  // event.preventDefault();
+  $(".round__point--container").not($(event.target).next()).slideUp();
+  $(event.target).next().slideToggle('slow') 
+})
+
+$('#catagory-two').click(() => {
+  $(".round__point--container").not($(event.target).next()).slideUp();
+  $(event.target).next().slideToggle('slow');
+});
+
+$('#catagory-three').click(() => {
+  $(".round__point--container").not($(event.target).next()).slideUp();
+  $(event.target).next().slideToggle('slow');
+});
+
+$('#catagory-four').click(() => {
+  $(".round__point--container").not($(event.target).next()).slideUp();
+  $(event.target).next().slideToggle('slow');
+});
 
 
 
