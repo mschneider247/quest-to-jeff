@@ -1,15 +1,15 @@
 import Round from "./Round";
 
 class Clue {
-  constructor(clueObj, dailyDoubleBoolean) {
-    this.question = clueObj.question
-    this.answer = clueObj.answer
-    this.dailyDoubleBoolean = dailyDoubleBoolean;
-    this.pValue = this.updatePointValue(clueObj.pointValue);
+  constructor(clue, dailyDouble) {
+    this.question = clue.question
+    this.answer = clue.answer
+    this.dailyDouble = dailyDouble;
+    this.pValue = this.updatePointValue(clue.pointValue);
   }
 
   updatePointValue(pValue) {
-    if (this.dailyDoubleBoolean) {
+    if (this.dailyDouble) {
       return pValue * 2
     } else {
       return pValue

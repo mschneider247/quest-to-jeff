@@ -4,20 +4,18 @@ import domUpdates from "./domUpdates";
 
 class Game {
   constructor(data) {
-    //   constructor(response_code, categories, clues ) {
-    // Object.assign(this, { response_code, categories, clues });
-    this.categories = this.createCategoriesArray(data.categories)
+    this.categories = this.createCategories(data.categories)
     this.clues = data.clues;
     this.players = [];
     this.roundCounter = 0; // goes up to 3
     this.round;
   }
-
-  createCategoriesArray(categoryObject) {
-    let categories = Object.keys(categoryObject);
-    return categories.map((category) => {
+  
+  createCategories(categories) {
+    let categoriesList = Object.keys(categories);
+    return categoriesList.map((category) => {
       return {
-        category, id: categoryObject[category]
+        category, id: categories[category]
       }
     })
   }
@@ -28,9 +26,9 @@ class Game {
   }
 
   getCluesForRound() {
-    let fourIdArray = this.getFourCategories().map((category) => category.id)
+    let fourIds = this.getFourCategories().map((category) => category.id)
     return this.clues.filter((clue) => {
-      return fourIdArray.includes(clue.categoryId)
+      return fourIds.includes(clue.categoryId)
     })
   }
 
@@ -45,7 +43,7 @@ class Game {
   startRound(game) {
     if (this.roundCounter < 3) {
       this.roundCounter++
-      this.round = new Round(this.getCluesForRound(), this.players[0]);
+      this.round = new Round(this.getCluesForRound(), game);
       this.round.turn();
       this.round.nextPlayer(game);
       // append round on domUpdates

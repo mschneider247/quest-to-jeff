@@ -6,5 +6,7 @@ export default {
       $(`#player__${player.id}--name`).text(player.name);
       $(`#player__${player.id}--score`).text(player.score);
     })
-  }
+  }, // have a comma inbetween each function
+
+
 };

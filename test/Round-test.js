@@ -10,7 +10,8 @@ var round, game;
 
 beforeEach(() => {
   game = new Game(sampleData)
-  round = new Round(game.getCluesForRound(), game.players[0]);
+  game.players = [{ id: 1, name: "Brit", score: 0 }, { id: 2, name: "Khalid", score: 0 }, { id: 3, name: "Jeff B.", score: 0 }]
+  round = new Round(game.getCluesForRound(), game);
 });
 
 describe('Round', () => {
@@ -41,8 +42,8 @@ describe('Round', () => {
     expect(round.checkDailyDouble()).to.be.an('boolean');
   })
 
-  it.only('Should do things with a player', () => {
-    round.nextPlayer(game)
-    // expect(round.checkDailyDouble()).to.be.an('boolean');
-  })
+  // it.only('Should do things with a player', () => {
+  //   round.nextPlayer(game)
+  //   // expect(round.checkDailyDouble()).to.be.an('boolean');
+  // })
 })

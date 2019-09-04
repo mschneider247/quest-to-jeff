@@ -9,17 +9,14 @@ describe('Game', () => {
   let game;
   beforeEach(() => {
     game = new Game(sampleData);
+    game.players = [{ id: 1, name: "Brit", score: 0 }, { id: 2, name: "Khalid", score: 0 }, { id: 3, name: "Jeff B.", score: 0 }]
+
   })
 
   it('should be a function', () => {
     expect(Game).to.be.a('function');
   })
 
-  
-  it('should start as an empty array', () => {
-    expect(game.players).to.eql([]);
-  })
-    
   it('should show the roundCounter starting at 0', () => {
     expect(game.roundCounter).to.equal(0);
   })

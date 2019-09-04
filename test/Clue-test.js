@@ -10,7 +10,8 @@ var game, round, clue, id, player;
 
 beforeEach(() => {
   game = new Game(data)
-  round = new Round(game.getCluesForRound());
+  game.players = [{ id: 1, name: "Brit", score: 0 }, { id: 2, name: "Khalid", score: 0 }, { id: 3, name: "Jeff B.", score: 0 }]
+  round = new Round(game.getCluesForRound(), game);
   id = round.currentClues[0].categoryId
   player = round.currentPlayer
   clue = new Clue(round.getClue(id, 200), round.checkDailyDouble());
@@ -25,7 +26,7 @@ describe('Clue', () => {
   it('Should double the point value when its a daily double', () => {
     clue.updatePlayerScore(player)
     // console.log(player.score)
-    if (clue.dailyDoubleBoolean === true) {
+    if (clue.dailyDouble === true) {
       expect(clue.pValue).to.equal(400);
     } else {
       expect(clue.pValue).to.equal(200);
