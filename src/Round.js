@@ -15,17 +15,19 @@ class Round {
 
   getClue(categoryId, pValue) {
     return this.currentClues.find((clue, index) => {
-      if ((clue.categoryId === categoryId) && (clue.pointValue === pValue)) {
+      if ((clue.categoryId === Number(categoryId)) && (clue.pointValue === Number(pValue))) {
         this.currentClues.splice(index, 1);
         return true;
       }
     });
   }
 
-  turn() {
+  turn(categoryId, pointValueId) {
+    console.log('turn inputs', categoryId, pointValueId)
 
     // user input
-    let clue = new Clue(this.getClue(9, 400), this.checkDailyDouble);
+    let clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble);
+    console.log(clue)
     // display question with clue.question
     // domUpdates.appendQuestionToDOM(clue.question);
   

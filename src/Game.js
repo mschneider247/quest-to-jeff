@@ -68,9 +68,9 @@ class Game {
     if (this.roundCounter < 3) {
       this.roundCounter++
       this.round = new Round(this.getCluesForRound(), game, this.fourCategories);
-      domUpdates.appendCatigoriesToDOM(this.round.fourCategories)
-      this.round.turn();
-      this.round.nextPlayer(game);
+      domUpdates.appendCategoriesToDOM(this.round.fourCategories,this.roundCounter);
+      // this.round.turn();
+      // this.round.nextPlayer(game);
       // append round on domUpdates
     }
   }
