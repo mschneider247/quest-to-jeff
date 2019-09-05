@@ -7,7 +7,6 @@ class Round {
     this.dailyDouble = Math.ceil(Math.random() * 12);
     this.currentPlayer = game.players[0];
     this.fourCategories = fourCategories;
-    console.log(this.fourCategories)
   }
 
   checkDailyDouble() {
@@ -49,6 +48,10 @@ class Round {
     } else if (this.currentPlayer.id === 3) {
       this.currentPlayer = game.players[0];
     }
+  }
+
+  appendCaztigoriesToDOM() {
+
   }
 }
 

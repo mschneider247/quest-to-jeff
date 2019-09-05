@@ -38,22 +38,26 @@ function gameStart(data, player1, player2, player3) {
   game.startRound(game);
 }
 
-$('#catagory-one').on('click', (event) => {
+$('#catagory-1').on('click', (event) => {
+  console.log('THIS IS FIRING!!!')
   $(".round__point--container").not($(event.target).next()).slideUp();
   $(event.target).next().slideToggle('slow') 
 })
 
-$('#catagory-two').click(() => {
+$('#catagory-2').click(() => {
+  console.log('THIS IS FIRING!!!')
   $(".round__point--container").not($(event.target).next()).slideUp();
   $(event.target).next().slideToggle('slow');
 });
 
-$('#catagory-three').click(() => {
+$('#catagory-3').click(() => {
+  console.log('THIS IS FIRING!!!')
   $(".round__point--container").not($(event.target).next()).slideUp();
   $(event.target).next().slideToggle('slow');
 });
 
-$('#catagory-four').click(() => {
+$('#catagory-4').click(() => {
+  console.log('THIS IS FIRING!!!')
   $(".round__point--container").not($(event.target).next()).slideUp();
   $(event.target).next().slideToggle('slow');
 });
