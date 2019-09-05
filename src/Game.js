@@ -69,6 +69,7 @@ class Game {
       this.roundCounter++;
       this.round = new Round(this.getCluesForRound(), game, this.fourCategories);
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter);
+      domUpdates.appendCurrentPlayerToDOM(this.round.currentPlayer.name);
       // this.round.turn();
       // this.round.nextPlayer(game);
       // this.round.getToNextRound();
