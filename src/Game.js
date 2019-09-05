@@ -9,15 +9,38 @@ class Game {
     this.players = [];
     this.roundCounter = 0; // goes up to 3
     this.round;
+    this.fourCategories;
   }
   
   createCategories(categories) {
     let categoriesList = Object.keys(categories);
-    return categoriesList.map((category) => {
+    const result = categoriesList.map((category) => {
       return {
-        category, id: categories[category]
+        category: this.toNormalizedCase(category), id: categories[category]
       }
     })
+    return result
+  }
+
+  toNormalizedCase(word) {
+    let tempArray = [];
+    word.split('').forEach((letter, i) => {
+      const isCapitol = letter.toLowerCase() != letter;
+      const perviousLettter = word[i - 1]
+      let perviousIsCapitol
+      if (perviousLettter) {
+        perviousIsCapitol = perviousLettter.toLowerCase() != perviousLettter;
+      }
+      if (i === 0) {
+        tempArray.push(letter.toUpperCase())
+      } else if (isCapitol && !perviousIsCapitol) {
+        tempArray.push(' ')
+        tempArray.push(letter)
+      } else {
+        tempArray.push(letter)
+      }
+    })
+    return tempArray.join('')
   }
 
   getFourCategories() { 
@@ -26,7 +49,8 @@ class Game {
   }
 
   getCluesForRound() {
-    let fourIds = this.getFourCategories().map((category) => category.id)
+    this.fourCategories = this.getFourCategories()
+    let fourIds = this.fourCategories.map((category) => category.id)
     return this.clues.filter((clue) => {
       return fourIds.includes(clue.categoryId)
     })
@@ -43,9 +67,10 @@ class Game {
   startRound(game) {
     if (this.roundCounter < 3) {
       this.roundCounter++
-      this.round = new Round(this.getCluesForRound(), game);
-      this.round.turn();
-      this.round.nextPlayer(game);
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories);
+      domUpdates.appendCategoriesToDOM(this.round.fourCategories,this.roundCounter);
+      // this.round.turn();
+      // this.round.nextPlayer(game);
       // append round on domUpdates
     }
   }
