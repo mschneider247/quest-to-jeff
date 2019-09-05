@@ -24,8 +24,7 @@ describe('Clue', () => {
   });
   
   it('Should double the point value when its a daily double', () => {
-    clue.updatePlayerScore(player)
-    // console.log(player.score)
+    clue.updatePlayerScore(player, clue.answer)
     if (clue.dailyDouble === true) {
       expect(clue.pValue).to.equal(400);
     } else {
