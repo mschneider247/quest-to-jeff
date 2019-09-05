@@ -1,11 +1,13 @@
 import Clue from "./Clue";
 
 class Round {
-  constructor(data, game) {
+  constructor(data, game, fourCategories) {
     this.currentClues = data;
     this.turnCounter = 1;
     this.dailyDouble = Math.ceil(Math.random() * 12);
     this.currentPlayer = game.players[0];
+    this.fourCategories = fourCategories;
+    console.log(this.fourCategories)
   }
 
   checkDailyDouble() {
@@ -25,8 +27,9 @@ class Round {
 
     // user input
     let clue = new Clue(this.getClue(9, 400), this.checkDailyDouble);
-    // display question
-    // get answer
+    // display question with clue.question
+    // domUpdates.appendQuestionToDOM(clue.question);
+  
     let isCorrect = clue.checkAnswer('Pork');
     this.turnCounter ++;
     

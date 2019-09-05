@@ -33,7 +33,6 @@ $('.start-game-btn').click(function(e) {
 })
 
 function gameStart(data, player1, player2, player3) {
-  console.log(data, player1, player2, player3)
   const game = new Game(data);
   game.getPlayers(player1, player2, player3);
   game.startRound(game);
