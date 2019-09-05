@@ -10,6 +10,7 @@ class Clue {
 
   updatePointValue(pValue) {
     if (this.dailyDouble) {
+      // dom updates for daily double in question area
       return pValue * 2
     } else {
       return pValue
@@ -18,8 +19,10 @@ class Clue {
 
   checkAnswer(userAnswer) {
     if (userAnswer.toLowerCase() === this.answer.toLowerCase()) {
+      // dom updates to congragulate player
       return true;
     }
+     // dom updates to show correct answer and cardi b crying
     return false;
   }
 

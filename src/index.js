@@ -7,7 +7,7 @@ import domUpdates from "./domUpdates";
 // import './images'
 
 import Game from './Game';
-
+let game;
 
 $('.main-game').hide();
 
@@ -33,31 +33,65 @@ $('.start-game-btn').click(function(e) {
 })
 
 function gameStart(data, player1, player2, player3) {
-  console.log(data, player1, player2, player3)
-  const game = new Game(data);
+  game = new Game(data);
   game.getPlayers(player1, player2, player3);
   game.startRound(game);
 }
 
-$('#catagory-one').on('click', (event) => {
-  $(".round__point--container").not($(event.target).next()).slideUp();
-  $(event.target).next().slideToggle('slow') 
+$('.round__div').on('click', (event) => {
+  
+  if (event.target.id === 'point') {
+    game.round.turn(event.target.parentElement.previousElementSibling.dataset.id, event.target.dataset.id)
+  }
+
+  if (event.target.id === 'catagory-1') {
+    console.log('class 1')
+    $(".round__point--container").not($(event.target).next()).slideUp();
+    $(event.target).next().slideToggle('slow')
+  }
+
+  if (event.target.id === 'catagory-2') {
+    console.log('class 2')
+    $(".round__point--container").not($(event.target).next()).slideUp();
+    $(event.target).next().slideToggle('slow')
+  }
+
+  if (event.target.id === 'catagory-3') {
+    console.log('class 3')
+    $(".round__point--container").not($(event.target).next()).slideUp();
+    $(event.target).next().slideToggle('slow')
+  }
+
+  if (event.target.id === 'catagory-4') {
+    console.log('class 4')
+    $(".round__point--container").not($(event.target).next()).slideUp();
+    $(event.target).next().slideToggle('slow')
+  }
 })
 
-$('#catagory-two').click(() => {
-  $(".round__point--container").not($(event.target).next()).slideUp();
-  $(event.target).next().slideToggle('slow');
-});
+// $('#catagory-1').on('click', (event) => {
+//   // console.log('THIS IS FIRING!!!')
+//   $(".round__point--container").not($(event.target).next()).slideUp();
+//   $(event.target).next().slideToggle('slow') 
+// })
 
-$('#catagory-three').click(() => {
-  $(".round__point--container").not($(event.target).next()).slideUp();
-  $(event.target).next().slideToggle('slow');
-});
+// $('#catagory-2').click(() => {
+//   // console.log('THIS IS FIRING!!!')
+//   $(".round__point--container").not($(event.target).next()).slideUp();
+//   $(event.target).next().slideToggle('slow');
+// });
 
-$('#catagory-four').click(() => {
-  $(".round__point--container").not($(event.target).next()).slideUp();
-  $(event.target).next().slideToggle('slow');
-});
+// $('#catagory-3').click(() => {
+//   // console.log('THIS IS FIRING!!!')
+//   $(".round__point--container").not($(event.target).next()).slideUp();
+//   $(event.target).next().slideToggle('slow');
+// });
+
+// $('#catagory-4').click(() => {
+//   // console.log('THIS IS FIRING!!!')
+//   $(".round__point--container").not($(event.target).next()).slideUp();
+//   $(event.target).next().slideToggle('slow');
+// });
 
 $(".header__btn").click(function () {
     location.reload(true);

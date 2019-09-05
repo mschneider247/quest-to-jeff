@@ -7,17 +7,40 @@ class Game {
     this.categories = this.createCategories(data.categories)
     this.clues = data.clues;
     this.players = [];
-    this.roundCounter = 1; // goes up to 3
+    this.roundCounter = 0; // goes up to 3
     this.round;
+    this.fourCategories;
   }
   
   createCategories(categories) {
     let categoriesList = Object.keys(categories);
-    return categoriesList.map((category) => {
+    const result = categoriesList.map((category) => {
       return {
-        category, id: categories[category]
+        category: this.toNormalizedCase(category), id: categories[category]
       }
     })
+    return result
+  }
+
+  toNormalizedCase(word) {
+    let tempArray = [];
+    word.split('').forEach((letter, i) => {
+      const isCapitol = letter.toLowerCase() != letter;
+      const perviousLettter = word[i - 1]
+      let perviousIsCapitol
+      if (perviousLettter) {
+        perviousIsCapitol = perviousLettter.toLowerCase() != perviousLettter;
+      }
+      if (i === 0) {
+        tempArray.push(letter.toUpperCase())
+      } else if (isCapitol && !perviousIsCapitol) {
+        tempArray.push(' ')
+        tempArray.push(letter)
+      } else {
+        tempArray.push(letter)
+      }
+    })
+    return tempArray.join('')
   }
 
   getFourCategories() { 
@@ -26,7 +49,8 @@ class Game {
   }
 
   getCluesForRound() {
-    let fourIds = this.getFourCategories().map((category) => category.id)
+    this.fourCategories = this.getFourCategories()
+    let fourIds = this.fourCategories.map((category) => category.id)
     return this.clues.filter((clue) => {
       return fourIds.includes(clue.categoryId)
     })
@@ -41,22 +65,23 @@ class Game {
   }
 
   startRound(game) {
-    if (this.roundCounter === 1) {
+    if (this.roundCounter === 0) {
       this.roundCounter++;
-      this.round = new Round(this.getCluesForRound(), game);
-      this.round.turn();
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories);
+      domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter);
+      // this.round.turn();
       // this.round.nextPlayer(game);
-      this.round.getToNextRound();
+      // this.round.getToNextRound();
       // append round on domUpdates
-    } else if (this.roundCounter === 2) {
+    } else if (this.roundCounter === 1) {
       this.roundCounter++;
       // we want to instantiate a new class of round 
-      this.round = new Round(this.getCluesForRound(), game);
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories);
       // this.round.current clues
       // loop through it to attack the point values
       // and increase the point values times 2
       // on dom updates we change the point value board
-    } else if (this.roundCounter > 2) {
+    } else if (this.roundCounter > 1) {
       // start round 3
       // this.round.current clues[0]
       // have just one category and one question
