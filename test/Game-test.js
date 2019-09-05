@@ -41,5 +41,16 @@ describe('Game', () => {
     expect(game.displayWinner()).to.eql({ id: 1, name: 'Amanda', score: 0 });
   })
 
+  it('should check if roundCounter has increased', () => {
+    game.startRound(game);
+    expect(game.roundCounter).to.eql(2);
+  })
+
+  it('should intantiate new round when roundCounter has increased to 2', () => {
+    game.startRound(game)
+    // how to check for an instatiation of a new round
+    // expect(round.startRound(game)).to.be.an('boolean');
+  })
+
 })
 

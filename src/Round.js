@@ -3,7 +3,7 @@ import Clue from "./Clue";
 class Round {
   constructor(data, game) {
     this.currentClues = data;
-    this.turnCounter = 1;
+    this.turnCounter = 0;
     this.dailyDouble = Math.ceil(Math.random() * 12);
     this.currentPlayer = game.players[0];
     this.game = game;
