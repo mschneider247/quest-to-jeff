@@ -94,7 +94,22 @@ $('.round__div').on('click', (event) => {
 // });
 
 $(".header__btn").click(function () {
-    location.reload(true);
+  location.reload(true);
 });
+
+$('.questions__current--question--submit--btn').click(function() {
+  // check answer
+  // give feedback
+  // update score
+  let playersAnswer = $(`.questions__current--question--answer--input`).val();
+  game.round.getPlayerAnswer(playersAnswer);
+  console.log(game.round.currentPlayer.score);
+  console.log(game.players[0].score);
+  // go to next player
+});
+
+function clearQuestionArea() {
+  
+}
 
 console.log('This is the JavaScript entry file - your code begins here.');

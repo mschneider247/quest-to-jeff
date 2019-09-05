@@ -8,6 +8,11 @@ export default {
     })
   }, // have a comma inbetween each function
 
+
+  updatePlayersScore(playerID, currentScore) {
+    $(`#player__${playerID}--score`).text(currentScore)
+  },
+
   appendCategoriesToDOM(fourCategories, round) {
     fourCategories.forEach( (category, i) => {
       $('.round__catagory--prompt').after(
@@ -19,8 +24,20 @@ export default {
       <p class="round__point--value" id="point" data-id=300>${300 * round}</p>
       <p class="round__point--value" id="point" data-id=400>${400 * round}</p>
     </container>
-    `)
+    `) 
     })
+  },
+
+  appendQuestionToDOM(question) {
+    $('.questions__current--question--prompt').html(question);
+  },
+
+  appendPointValueToDOM(value) {
+    $('.questions__current--question--points').html(value);
+  },
+
+  appendCurrentPlayerToDOM(currentPlayer) {
+    $('.questions__current--player--name').html(currentPlayer);
   }
 
 };

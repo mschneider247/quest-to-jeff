@@ -1,4 +1,5 @@
 import Clue from "./Clue";
+import domUpdates from "./domUpdates";
 
 class Round {
   constructor(data, game, fourCategories) {
@@ -8,6 +9,7 @@ class Round {
     this.currentPlayer = game.players[0];
     this.game = game;
     this.fourCategories = fourCategories;
+    this.clue;
   }
 
   checkDailyDouble() {
@@ -23,27 +25,16 @@ class Round {
     });
   }
 
-  turn(categoryId, pointValueId) {
+  turn(categoryId, pointValueId) { 
     console.log('turn inputs', categoryId, pointValueId)
 
     // user input
-    let clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble());
-    console.log(clue)
+    this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble());
+    console.log(this.clue)
     // display question with clue.question
-    // domUpdates.appendQuestionToDOM(clue.question);
+    domUpdates.appendQuestionToDOM(this.clue.question);
+    domUpdates.appendPointValueToDOM(this.clue.pValue);
   
-    let isCorrect = clue.checkAnswer('Pork');
-    // this.turnCounter ++;
-
-    if (isCorrect === true) {
-      this.turnCounter++;
-      this.currentPlayer.score += clue.pValue;
-      this.nextPlayer();
-    } else {
-      this.turnCounter++;
-      this.currentPlayer.score -= clue.pValue;
-      this.nextPlayer();
-    }
   
   }
 
@@ -67,6 +58,22 @@ class Round {
 
   appendCategoriesToDOM() {
 
+  }
+
+  getPlayerAnswer(playersAnswer) {
+    let isCorrect = this.clue.checkAnswer(playersAnswer); 
+    // this.turnCounter ++;
+    if (isCorrect === true) {
+      this.turnCounter++;
+      this.currentPlayer.score += this.clue.pValue;
+      domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);
+      this.nextPlayer();
+    } else {
+      this.turnCounter++;
+      this.currentPlayer.score -= this.clue.pValue;
+      domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);
+      this.nextPlayer();
+    }
   }
 }
 
