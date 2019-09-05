@@ -7,7 +7,7 @@ class Game {
     this.categories = this.createCategories(data.categories)
     this.clues = data.clues;
     this.players = [];
-    this.roundCounter = 0; // goes up to 3
+    this.roundCounter = 1; // goes up to 3
     this.round;
   }
   
@@ -41,12 +41,22 @@ class Game {
   }
 
   startRound(game) {
-    if (this.roundCounter < 3) {
-      this.roundCounter++
+    if (this.roundCounter === 1) {
+      this.roundCounter++;
       this.round = new Round(this.getCluesForRound(), game);
       this.round.turn();
-      this.round.nextPlayer(game);
+      // this.round.nextPlayer(game);
+      this.round.getToNextRound();
       // append round on domUpdates
+    } else if (this.roundCounter === 2) {
+      this.roundCounter++;
+      // we want to instantiate a new class of round 
+      // and increase the point values times 2
+      // on dom updates we change the point value board
+    } else if (this.roundCounter > 2) {
+      // start round 3
+      // have just one category and one question
+      // method that allows all players for a wager 
     }
   }
 

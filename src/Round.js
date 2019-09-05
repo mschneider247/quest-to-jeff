@@ -6,6 +6,7 @@ class Round {
     this.turnCounter = 1;
     this.dailyDouble = Math.ceil(Math.random() * 12);
     this.currentPlayer = game.players[0];
+    this.game = game;
   }
 
   checkDailyDouble() {
@@ -22,30 +23,40 @@ class Round {
   }
 
   turn() {
-
     // user input
     let clue = new Clue(this.getClue(9, 400), this.checkDailyDouble);
     // display question
     // get answer
     let isCorrect = clue.checkAnswer('Pork');
-    this.turnCounter ++;
-    
+    // this.turnCounter ++;
+
     if (isCorrect === true) {
+      this.turnCounter++;
       this.currentPlayer.score += clue.pValue;
+      this.nextPlayer();
     } else {
+      this.turnCounter++;
       this.currentPlayer.score -= clue.pValue;
+      this.nextPlayer();
     }
   
   }
 
-  nextPlayer(game) {
+  nextPlayer() {
     if (this.currentPlayer.id === 1) {
-      this.currentPlayer = game.players[1];
+      this.currentPlayer = this.game.players[1];
     } else if (this.currentPlayer.id === 2) {
-      this.currentPlayer = game.players[2];
+      this.currentPlayer = this.game.players[2];
     } else if (this.currentPlayer.id === 3) {
-      this.currentPlayer = game.players[0];
+      this.currentPlayer = this.game.players[0];
     }
+  }
+
+  getToNextRound() {
+    if (this.turnCounter === 16) {
+      // end the round and take it to the next
+      // was thinking of invoking new round here
+    } 
   }
 }
 
