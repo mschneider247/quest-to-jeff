@@ -51,10 +51,14 @@ class Game {
     } else if (this.roundCounter === 2) {
       this.roundCounter++;
       // we want to instantiate a new class of round 
+      this.round = new Round(this.getCluesForRound(), game);
+      // this.round.current clues
+      // loop through it to attack the point values
       // and increase the point values times 2
       // on dom updates we change the point value board
     } else if (this.roundCounter > 2) {
       // start round 3
+      // this.round.current clues[0]
       // have just one category and one question
       // method that allows all players for a wager 
     }
