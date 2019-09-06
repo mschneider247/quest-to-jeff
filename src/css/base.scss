@@ -2,7 +2,9 @@
 $primary-background: white;
 
 body {
-  background-color: $primary-background;
+  background-image: url("../images/JeffQuest.jpg");
+  background-size: 100%;
+  color: white;
   display: grid;
   grid-template-areas: 
   'header'
@@ -33,12 +35,10 @@ body {
 
 header {
   grid-area: header;
-  background-color: purple;
 }
 
 .player {
   grid-area: player-info;
-  background-color: yellow;
   display: flex;
   height: 260px;
 }
@@ -71,14 +71,12 @@ h1 {
 
 .round {
   grid-area: round;
-  background-color: orange;
   display: flex;
   justify-content: flex-end;
 }
 
 .questions {
   grid-area: questions;
-  background-color: green;
   display: flex;
 }
 
