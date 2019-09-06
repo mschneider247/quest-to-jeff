@@ -38,6 +38,11 @@ export default {
 
   appendCurrentPlayerToDOM(currentPlayer) {
     $('.questions__current--player--name').html(currentPlayer);
+  }, 
+
+  updatePlayersMarker(currentPlayer, nextPalyer) {
+    $(`#player${currentPlayer}-carrot, #player${nextPalyer}-carrot`).toggle();
+
   }
 
 };

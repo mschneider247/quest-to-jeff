@@ -40,10 +40,13 @@ class Round {
 
   nextPlayer() {
     if (this.currentPlayer.id === 1) {
+      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[1])
       this.currentPlayer = this.game.players[1];
     } else if (this.currentPlayer.id === 2) {
+      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[2])
       this.currentPlayer = this.game.players[2];
     } else if (this.currentPlayer.id === 3) {
+      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[3])
       this.currentPlayer = this.game.players[0];
     }
   }
