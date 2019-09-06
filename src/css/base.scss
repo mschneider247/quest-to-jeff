@@ -40,6 +40,7 @@ header {
   grid-area: player-info;
   background-color: yellow;
   display: flex;
+  height: 260px;
 }
 
 h1 {
@@ -87,4 +88,19 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.player-marker {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% {
+    opacity: 0.5;
+  }
+  50% {
+    font-size: 6em;
+    opacity: 1;
+    color: black;
+  }
 }
