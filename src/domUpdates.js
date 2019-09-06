@@ -41,8 +41,8 @@ export default {
   }, 
 
   updatePlayersMarker(currentPlayer, nextPalyer) {
-    $(`#player${currentPlayer}-carrot, #player${nextPalyer}-carrot`).toggle();
-
+    $(`#player__${currentPlayer}--marker`).fadeOut();
+    $(`#player__${nextPalyer.id}--marker`).fadeIn();
   }
 
 };
