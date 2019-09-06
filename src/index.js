@@ -7,7 +7,8 @@ import domUpdates from "./domUpdates";
 // import './images'
 
 import Game from './Game';
-$('#player__2--marker, #player__3--marker').hide();
+$('#player__2--marker').hide();
+$('#player__3--marker').hide();
 let game;
 
 $('.main-game').hide();
