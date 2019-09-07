@@ -1,6 +1,8 @@
 import Clue from "./Clue";
 import domUpdates from "./domUpdates";
 
+import $ from 'jquery';
+
 class Round {
   constructor(data, game, fourCategories) {
     this.currentClues = data;
@@ -67,11 +69,15 @@ class Round {
     let isCorrect = this.clue.checkAnswer(playersAnswer); 
     // this.turnCounter ++;
     if (isCorrect === true) {
+      $(".answer-correct-banner").show();
       this.turnCounter++;
       this.currentPlayer.score += this.clue.pValue;
       domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);
       this.nextPlayer();
     } else {
+      console.log($(".answer-incorrect-banner").find('h3'))
+      $(".answer-incorrect-banner").find('h3').html('the correct answer was' this.clue.answer)
+      $(".answer-incorrect-banner").show();
       this.turnCounter++;
       this.currentPlayer.score -= this.clue.pValue;
       domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);
