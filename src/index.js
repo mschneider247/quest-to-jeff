@@ -103,6 +103,7 @@ $('.questions__current--question--submit--btn').click(function() {
   // check answer
   // give feedback
   // update score
+  $(".round__point--container").slideUp();
   let playersAnswer = $(`.questions__current--question--answer--input`).val();
   game.round.getPlayerAnswer(playersAnswer);
   console.log(game.round.currentPlayer.score);
