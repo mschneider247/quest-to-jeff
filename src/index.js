@@ -41,9 +41,15 @@ function gameStart(data, player1, player2, player3) {
 }
 
 $('.round__div').on('click', (event) => {
-  
+  // console.log(event.target.parentElement.previousElementSibling.dataset.id)
   if (event.target.id === 'point') {
-    game.round.turn(event.target.parentElement.previousElementSibling.dataset.id, event.target.dataset.id)
+    let categoryID = event.target.parentElement.previousElementSibling.dataset.id;
+    let pointValueID = event.target.dataset.id;
+    if (game.roundCounter === 2) {
+      game.roundTwo.turnRoundTwo(categoryID, pointValueID);
+    } else {
+      game.round.turn(categoryID, pointValueID);
+    }
   }
 
   if (event.target.id === 'catagory-1') {

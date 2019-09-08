@@ -7,7 +7,7 @@ class Round {
   constructor(data, game, fourCategories) {
     this.currentClues = data;
     this.turnCounter = 0;
-    this.dailyDouble = Math.ceil(Math.random() * 12);
+    this.dailyDouble = Math.ceil(Math.random() * 16);
     this.currentPlayer = game.players[0];
     this.game = game;
     this.fourCategories = fourCategories;
@@ -33,7 +33,6 @@ class Round {
     // user input
     this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble());
     console.log(this.clue)
-    // display question with clue.question
     domUpdates.appendQuestionToDOM(this.clue.question);
     domUpdates.appendPointValueToDOM(this.clue.pValue);
   
@@ -61,6 +60,8 @@ class Round {
     if (this.turnCounter === 16) {
       // end the round and take it to the next
       // was thinking of invoking new round here
+      console.log('this is line 62 of Round ', this.game);
+      this.game.startRound(this.game);
     } 
   }
 
@@ -87,6 +88,8 @@ class Round {
       domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);
       this.nextPlayer();
     }
+    console.log('Current Turn', this.turnCounter)
+    this.getToNextRound();
   }
 }
 
