@@ -29,7 +29,7 @@ class Round {
 
   turn(categoryId, pointValueId) { 
     console.log('turn inputs', categoryId, pointValueId)
-
+    console.log('Round turn Method', this.turnCounter);
     // user input
     this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble());
     console.log(this.clue)
@@ -42,14 +42,17 @@ class Round {
 
   nextPlayer() {
     if (this.currentPlayer.id === 1) {
-      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[1])
-      this.currentPlayer = this.game.players[1];
+      console.log('Current player', this.currentPlayer.id)
+      return this.currentPlayer = this.game.players[1];
+      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[0])
     } else if (this.currentPlayer.id === 2) {
-      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[2])
-      this.currentPlayer = this.game.players[2];
+      console.log('Current player', this.currentPlayer.id)
+      return this.currentPlayer = this.game.players[2];
+      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[1])
     } else if (this.currentPlayer.id === 3) {
-      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[3])
-      this.currentPlayer = this.game.players[0];
+      console.log('Current player', this.currentPlayer.id)
+      return this.currentPlayer = this.game.players[0];
+      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[2])
     }
   }
 
@@ -71,6 +74,7 @@ class Round {
     if (isCorrect === true) {
       $(".answer-correct-banner").show();
       this.turnCounter++;
+      console.log('Round playerMethod turn counter', this.turnCounter);
       this.currentPlayer.score += this.clue.pValue;
       domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);
       this.nextPlayer();
