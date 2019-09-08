@@ -6,16 +6,18 @@ import Game from '../src/Game';
 import Clue from '../src/Clue';
 
 describe('Game', () => {
-  let game, clue;
+  let game
+  // clue;
+
   beforeEach(() => {
     game = new Game(sampleData);
     game.players = [{ id: 1, name: "Brit", score: 0 }, { id: 2, name: "Khalid", score: 0 }, { id: 3, name: "Jeff B.", score: 0 }];
-    clue = new Clue({
-      question: 'An effort lasting from 1985 to 1991 eliminated this paralytic illness from Latin America',
-      answer: 'polio',
-      pointValue: 200,
-      categoryId: 3
-    }, true);
+    // clue = new Clue({
+    //   question: 'An effort lasting from 1985 to 1991 eliminated this paralytic illness from Latin America',
+    //   answer: 'polio',
+    //   pointValue: 200,
+    //   categoryId: 3
+    // }, true);
   });
 
   it('should be a function', () => {
@@ -45,16 +47,16 @@ describe('Game', () => {
     expect(game.displayWinner()).to.eql({ id: 1, name: 'Brit', score: 1000 });
   })
 
-  it('should check if roundCounter has increased', () => {
-    game.startRound(game);
-    expect(game.roundCounter).to.eql(2);
-  })
+  // it('should check if roundCounter has increased', () => {
+  //   game.startRound(game);
+  //   expect(game.roundCounter).to.eql(2);
+  // })
 
-  it('should intantiate new round when roundCounter has increased to 2', () => {
-    game.startRound(game)
-    // how to check for an instatiation of a new round
-    // expect(round.startRound(game)).to.be.an('boolean');
-  })
+  // it('should intantiate new round when roundCounter has increased to 2', () => {
+  //   game.startRound(game)
+  //   // how to check for an instatiation of a new round
+  //   // expect(round.startRound(game)).to.be.an('boolean');
+  // })
 
 })
 
