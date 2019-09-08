@@ -26,7 +26,7 @@ class Clue {
       // dom updates to congragulate player
       return true;
     }
-     // dom updates to show correct answer and cardi b crying
+    // dom updates to show correct answer and cardi b crying
     return false;
   }
 
