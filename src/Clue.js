@@ -1,4 +1,5 @@
 import Round from "./Round";
+import domUpdates from "./domUpdates";
 
 class Clue {
   constructor(clue, dailyDouble) {
@@ -11,6 +12,9 @@ class Clue {
   updatePointValue(pValue) {
     if (this.dailyDouble) {
       // dom updates for daily double in question area
+      domUpdates.appendDailyDouble();
+      // have DOM show what clue is a daily double after the update/pop up goes away
+      // do on logic on index.js
       return pValue * 2
     } else {
       return pValue
@@ -22,7 +26,7 @@ class Clue {
       // dom updates to congragulate player
       return true;
     }
-     // dom updates to show correct answer and cardi b crying
+    // dom updates to show correct answer and cardi b crying
     return false;
   }
 

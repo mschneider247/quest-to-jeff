@@ -47,7 +47,7 @@ export default {
     $('.questions__current--player--name').html(currentPlayer);
   }, 
 
-  updatePlayersMarker(currentPlayer, nextPalyer) {
+  updatePlayersMarker(currentPlayer, nextPlayer) {
     $(`#player__${currentPlayer}--marker`).fadeOut();
     $(`#player__${nextPalyer.id}--marker`).fadeIn();
   },
@@ -59,6 +59,13 @@ export default {
   appendPlayerWrongAnswer() {
     $(".answer-incorrect-banner").find('h3').html(this.clue.answer)
     $(".answer-incorrect-banner").show();
+  },
+
+  appendDailyDouble() {
+    $('.questions__current--question--daily--double--container').append(`
+    <p class="questions__current--question--daily--double"> DAILY DOUBLE! </p>
+    <input class='questions__--daily--double--input' type='text' placeholder='Wager'>
+    <button class='questions__--daily--double--button'>Submit Wager</button>`);
   }
 
 };

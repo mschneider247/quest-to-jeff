@@ -2,6 +2,8 @@
 <html lang="en-US">
   <head>
     <title>A Quest For Jeff</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body> 
     <section class='welcome-banner'>
@@ -20,23 +22,23 @@
         <button class="header__btn">Restart Game</button>
     </header>
     <section class="player">
-      <container class="player__one">
+      <container class="player__one player--score">
         <p class="player__name" id="player__1--name">Name</p>
         <p class="player__score" id="player__1--score">Score</p>
         <p class="player__points" id="player__1--points">POINTS</p>
-        <h4 id="player__1--marker" class="player-marker">^</h4>
+        <h4 id="player__1--marker" class="player-marker">☝️</h4>
       </container>
-      <container class="player__two">
+      <container class="player__two player--score">
         <p class="player__name" id="player__2--name">Name</p>
         <p class="player__score" id="player__2--score">Score</p>
         <p class="player__points" id="player__2--points">POINTS</p>
-        <h4 id="player__2--marker" class="player-marker">^</h4>
+        <h4 id="player__2--marker" class="player-marker">☝️</h4>
       </container>
-      <container class="player__three">
+      <container class="player__three player--score">
         <p class="player__name" id="player__3--name">Name</p>
         <p class="player__score" id="player__3--score">Score</p>
         <p class="player__points" id="player__3--points">POINTS</p>
-        <h4 id="player__3--marker" class="player-marker">^</h4>
+        <h4 id="player__3--marker" class="player-marker">☝️</h4>
       </container>
     </section>
     <section class="round">
@@ -53,13 +55,9 @@
           <section class='answer-correct-banner'>
               <h2 class='header'>Great Job!!!</h2>
               <h3 class='about-game'> You are right!!!</h3>
-            </section>
-      <container class="questions__current--player">
-        <p class="questions__current--player--title">Current Player</p>
-        <h3 class="questions__current--player--name">Player 1</h3>
-      </container>
+          </section>
       <container class="questions__current--question">
-        <p class="questions__current--question--daily--double">Daily Double</p>
+        <div class='questions__current--question--daily--double--container'></div>
         <p class="questions__current--question--points"><span></span> Points</p>
         <p class="questions__current--question--title">Question:</p>
         <h4 class="questions__current--question--prompt"></h4>
