@@ -120,9 +120,9 @@ $('.questions__current--question--submit--btn').click(function() {
   // update score
   $(".round__point--container").slideUp();
   let playersAnswer = $(`.questions__current--question--answer--input`).val();
-    $(".questions__current--question--prompt").hide();
-    $(".questions__current--question").hide();
-    $(".questions__current--player").hide();
+  $(".questions__current--question--prompt").hide();
+  $(".questions__current--question").hide();
+  $(".questions__current--player").hide();
   
   game.round.getPlayerAnswer(playersAnswer);
 
