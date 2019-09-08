@@ -76,7 +76,7 @@ class Round {
       this.nextPlayer();
     } else {
       console.log($(".answer-incorrect-banner").find('h3'))
-      $(".answer-incorrect-banner").find('h3').html('the correct answer was' this.clue.answer)
+      $(".answer-incorrect-banner").find('h3').html(this.clue.answer)
       $(".answer-incorrect-banner").show();
       this.turnCounter++;
       this.currentPlayer.score -= this.clue.pValue;
