@@ -69,15 +69,13 @@ class Round {
     let isCorrect = this.clue.checkAnswer(playersAnswer); 
     // this.turnCounter ++;
     if (isCorrect === true) {
-      $(".answer-correct-banner").show();
+      appendPlayerCorrectAnswer();
       this.turnCounter++;
       this.currentPlayer.score += this.clue.pValue;
       domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);
       this.nextPlayer();
     } else {
-      console.log($(".answer-incorrect-banner").find('h3'))
-      $(".answer-incorrect-banner").find('h3').html(this.clue.answer)
-      $(".answer-incorrect-banner").show();
+      appendPlayerWrongAnswer();
       this.turnCounter++;
       this.currentPlayer.score -= this.clue.pValue;
       domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);

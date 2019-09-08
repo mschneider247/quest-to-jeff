@@ -26,7 +26,7 @@ export default {
         `<button class="round__catagory" id="catagory-${i + 1}" data-id=${category.id}>${category.category}</button>
     <container class="round__point--container" style="display: none;">
       <p class="round__point--prompt">Select Point Value</p>
-      <p class="round__point--value" id="point" data-id=100>${100 * round}</p>
+      <p class="round__point--value" id="point" data-id=100 disabled = "false">${100 * round}</p>
       <p class="round__point--value" id="point" data-id=200>${200 * round}</p>
       <p class="round__point--value" id="point" data-id=300>${300 * round}</p>
       <p class="round__point--value" id="point" data-id=400>${400 * round}</p>
@@ -50,6 +50,15 @@ export default {
   updatePlayersMarker(currentPlayer, nextPalyer) {
     $(`#player__${currentPlayer}--marker`).fadeOut();
     $(`#player__${nextPalyer.id}--marker`).fadeIn();
+  },
+
+  appendPlayerCorrectAnswer() {
+    $(".answer-correct-banner").show();
+  },
+
+  appendPlayerWrongAnswer() {
+    $(".answer-incorrect-banner").find('h3').html(this.clue.answer)
+    $(".answer-incorrect-banner").show();
   }
 
 };
