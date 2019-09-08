@@ -47,14 +47,14 @@ describe('Round', () => {
   //   // expect(round.checkDailyDouble()).to.be.an('boolean');
   // })
 
-  it('Should increase turnCounter by one', () => {
-    round.turn();
-    expect(round.turn()).to.equal(1);
-  })
+  // it('Should increase turnCounter by one', () => {
+  //   round.turn();
+  //   expect(round.turn()).to.equal(1);
+  // })
 
-  it('Should check if players move to next players', () => {
-    round.turn();
-    expect(round.turn()).to.equal([]);
-  })
+  // it('Should check if players move to next players', () => {
+  //   round.turn();
+  //   expect(round.turn()).to.equal([]);
+  // })
 
 })

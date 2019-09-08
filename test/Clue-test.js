@@ -14,7 +14,7 @@ beforeEach(() => {
   round = new Round(game.getCluesForRound(), game);
   id = round.currentClues[0].categoryId
   player = round.currentPlayer
-  clue = new Clue(round.getClue(id, 200), round.checkDailyDouble());
+  clue = new Clue(round.getClue(id, 400), round.checkDailyDouble());
 });
 
 describe('Clue', () => {
@@ -26,9 +26,9 @@ describe('Clue', () => {
   it('Should double the point value when its a daily double', () => {
     clue.updatePlayerScore(player, clue.answer)
     if (clue.dailyDouble === true) {
-      expect(clue.pValue).to.equal(400);
+      expect(clue.pValue).to.equal(800);
     } else {
-      expect(clue.pValue).to.equal(200);
+      expect(clue.pValue).to.equal(400);
     }
   });
 

@@ -3,6 +3,7 @@ import domUpdates from "./domUpdates";
 
 class Clue {
   constructor(clue, dailyDouble) {
+    console.log('This is the clue on', clue)
     this.question = clue.question
     this.answer = clue.answer
     this.dailyDouble = dailyDouble;
