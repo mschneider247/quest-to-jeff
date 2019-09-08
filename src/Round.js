@@ -43,16 +43,16 @@ class Round {
   nextPlayer() {
     if (this.currentPlayer.id === 1) {
       console.log('Current player', this.currentPlayer.id)
-      return this.currentPlayer = this.game.players[1];
-      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[0])
+      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[1])
+      this.currentPlayer = this.game.players[1];
     } else if (this.currentPlayer.id === 2) {
       console.log('Current player', this.currentPlayer.id)
-      return this.currentPlayer = this.game.players[2];
-      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[1])
+      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[2])
+      this.currentPlayer = this.game.players[2];
     } else if (this.currentPlayer.id === 3) {
       console.log('Current player', this.currentPlayer.id)
-      return this.currentPlayer = this.game.players[0];
-      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[2])
+      domUpdates.updatePlayersMarker(this.currentPlayer.id, this.game.players[0])
+      this.currentPlayer = this.game.players[0];
     }
   }
 
