@@ -1,103 +1,124 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 $primary-background: white;
+$transparent-background: hsla(35, 100%, 83%, 0.8);
+$extra-transparent: hsla(35, 100%, 83%, 0.4);
+$incorrect: #d86a6a;
 
 body {
   background-image: url("../images/JeffQuest.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   color: white;
+}
+
+main {
   display: grid;
   grid-template-areas: 
-  'header'
-  'player-info'
-  'round'
-  'questions'
+  "head head head"
+  "player blank round"
+  "question question round";
+  box-sizing: border-box;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-rows: 20% 60% 20%;
 }
 
 .welcome-banner {
-  position: relative;
+  color: black;
   padding: 20px;
   text-align: center;
-  border: 5px solid #d86a6a;
-  top: 90%;
+  border: 5px solid $incorrect;
+  border-radius: 15px;
+  background-color: $transparent-background;
+  margin-top: 14%;
   form {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 30%;
     margin: auto;
     input {
+      border-radius: 5px;
+      border: 1px solid black;
       margin: 10px;
     }
   }
   button {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    border-radius: 15px;
     font-size: 20px;
   } 
 }
 
 .answer-incorrect-banner {
-  position: relative;
-  padding: 20px;
-  display: none;
-  text-align: center;
-  border: 5px solid #d86a6a;
-  top: 90%;
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: auto;
-  }
+  border: 5px solid $incorrect;
+  color: rgb(71, 0, 0);
 }
 
 .answer-correct-banner {
-  position: relative;
+  color: rgb(0, 44, 0);
+  border: 5px solid green;
+}
+
+.answer-incorrect-banner,
+.answer-correct-banner {
+  margin-top: 5%;
+  margin-left: 10%;
+  width: 80%;
+  border-radius: 15px;
+  background-color: $extra-transparent;
+  grid-area: question;
   padding: 20px;
   display: none;
   text-align: center;
-  border: 5px solid #d86a6a;
-  top: 90%;
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: auto;
-  }
 }
 
 header {
-  grid-area: header;
+  grid-area: head;
+}
+
+.header {
+  margin-left: 13%;
+}
+
+header button {
+  background-color: $transparent-background;
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  height: 40px;
+  width: 80px;
+  border: 2px solid $incorrect;
+  border-radius: 5px;
 }
 
 .player {
-  grid-area: player-info;
+  grid-area: player;
   display: flex;
   height: 260px;
 }
 
 .player--score {
-  // width: 50px;
+  color: black;
+  background-color: $extra-transparent;
+  grid-area: player;  
   margin: 10px;
   text-align: center;
-  border-right: solid 2px #ffffff;
+  border: solid 2px #ffffff;
+  border-radius: 15px;
   padding-right: 10px;
-  width: 150px;
   .player__name {
+    width: 110px;
     font-size: 25px;
-    // padding-bottom: 10px;
-    // border-bottom: solid 2px #ffffff;
   }
   .player__score {
+    // width: 110px;
     font-size: 50px;
   }
   .player__points {
-    // border-top: solid 2px #ffffff;
-    // padding-top: 10px;
+    // width: 110px;
     font-size: 15px;
   }
-}
-
-.player__three {
-  border-right: none;
 }
 
 h1 {
@@ -112,41 +133,71 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
+.round__div {
+  margin-right: 10%;
+}
+
 .round__catagory {
+  grid-area: round;
   border: none;
   text-decoration: none;
   font-size: 1rem;
   cursor: pointer;
   text-align: center;
   width: 100%;
-  height: 25px;
+  height: 35px;
   transition: background 250ms ease-in-out, 
                 transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
-.questions__current--player {
-}
-
 .round {
   grid-area: round;
   display: flex;
   justify-content: flex-end;
+  height: 400px;
 }
 
-.questions {
-  grid-area: questions;
-  display: flex;
+.round__div {
+  color: black;
+  background-color: $extra-transparent;
+  border-radius: 5px;
+  font-size: 22px;
+  border: 2px solid white;
+  height: 140px;
+  // padding: 10%;
+  width: 120%;
+}
+
+.round__point--container {
+  background-color: $extra-transparent;
+  font-size: 22px;
+  border-radius: 5px;
+  border: 2px solid white;
 }
 
 .round__div,
 .round__point--container {
+  grid-area: round;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+.questions {
+  grid-area: question;
+}
+
 .questions__current--question {
+  margin-top: 3%;
+  margin-left: 10%;
+  width: 80%;
+  color: black;
+  background-color: $extra-transparent;
+  border-radius: 5px;
+  border: 2px solid white;
+  grid-area: question;
   display: flex;
   flex-direction: column;
   align-items: center;
