@@ -49,7 +49,7 @@ export default {
 
   updatePlayersMarker(currentPlayer, nextPlayer) {
     $(`#player__${currentPlayer}--marker`).fadeOut();
-    $(`#player__${nextPalyer.id}--marker`).fadeIn();
+    $(`#player__${nextPlayer.id}--marker`).fadeIn();
   },
 
   appendPlayerCorrectAnswer() {
