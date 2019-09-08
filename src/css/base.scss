@@ -4,6 +4,7 @@ $primary-background: white;
 body {
   background-image: url("../images/JeffQuest.jpg");
   background-size: 100%;
+  background-repeat: no-repeat;
   color: white;
   display: grid;
   grid-template-areas: 
@@ -141,3 +142,8 @@ h1 {
     color: black;
   }
 }
+
+// @media only screen and (max-width: 800px) {
+
+//   background-size: 800px;
+// }
