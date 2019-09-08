@@ -31,6 +31,8 @@ $('.start-game-btn').click(function(e) {
     .catch(err => console.log(err));
   $('.welcome-banner').hide();
   $('.main-game').fadeIn('swing');
+  $(".questions__current--question--prompt").hide();
+  $(".questions__current--question").hide();
   
 })
 
@@ -56,7 +58,7 @@ $('.round__div').on('click', (event) => {
     $(".questions__current--question").show();
     $(".answer-incorrect-banner").hide();
     $(".answer-correct-banner").hide();
-    // $(".round__point--value").attr("disabled", true)
+    $(".round__point--value").prop("disabled", true)
   }
 
 
@@ -120,6 +122,7 @@ $('.questions__current--question--submit--btn').click(function() {
   // update score
   $(".round__point--container").slideUp();
   let playersAnswer = $(`.questions__current--question--answer--input`).val();
+  clearAnswerField();
   $(".questions__current--question--prompt").hide();
   $(".questions__current--question").hide();
   $(".questions__current--player").hide();
@@ -129,8 +132,9 @@ $('.questions__current--question--submit--btn').click(function() {
   // go to next player
 });
 
-function clearQuestionArea() {
-  
+function clearAnswerField() {
+  $(".questions__current--question--answer--input").val('');
+
 }
 
 console.log('This is the JavaScript entry file - your code begins here.');
