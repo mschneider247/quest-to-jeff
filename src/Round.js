@@ -44,17 +44,19 @@ class Round {
     });
   }
 
-  turn(categoryId, pointValueId) { 
+  turn(categoryId, pointValueId, currentRound) { 
     console.log('turn inputs', categoryId, pointValueId)
     console.log('Round turn Method', this.turnCounter);
     // user input
-    this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble());
-    console.log(this.clue)
+    if (currentRound === 2) {
+      this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkBothDailyDoubles());
+    } else {
+      this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble());
+    }
     domUpdates.appendQuestionToDOM(this.clue.question);
     domUpdates.appendPointValueToDOM(this.clue.pValue);
-  
-  
   }
+
 
   nextPlayer() {
     if (this.currentPlayer.id === 1) {

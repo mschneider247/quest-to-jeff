@@ -1,7 +1,7 @@
 import Player from '../src/Player';
 import Round from '../src/Round';
 import domUpdates from "./domUpdates";
-import RoundTwo from './RoundTwo';
+
 
 class Game {
   constructor(data) {
@@ -69,14 +69,14 @@ class Game {
   startRound(game) {
     if (this.roundCounter === 0) {
       this.roundCounter++;
-      this.round = new Round(this.getCluesForRound(), game, this.fourCategories);
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter);
       domUpdates.appendCurrentPlayerToDOM(this.round.currentPlayer.name);
       // append round on domUpdates
     } else if (this.roundCounter === 1) {
       console.log('ISS ROUND TWO MODAFUCKAAAAAAAA!')
       this.roundCounter++;
-      this.roundTwo = new RoundTwo(this.getCluesForRound(), game, this.fourCategories);
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
       domUpdates.removePreviousRound();
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, 2)
       
