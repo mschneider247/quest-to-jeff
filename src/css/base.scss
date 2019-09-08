@@ -74,6 +74,32 @@ header {
   height: 260px;
 }
 
+.player--score {
+  // width: 50px;
+  margin: 10px;
+  text-align: center;
+  border-right: solid 2px #ffffff;
+  padding-right: 10px;
+  width: 150px;
+  .player__name {
+    font-size: 25px;
+    // padding-bottom: 10px;
+    // border-bottom: solid 2px #ffffff;
+  }
+  .player__score {
+    font-size: 50px;
+  }
+  .player__points {
+    // border-top: solid 2px #ffffff;
+    // padding-top: 10px;
+    font-size: 15px;
+  }
+}
+
+.player__three {
+  border-right: none;
+}
+
 h1 {
   font-family: cursive;
 }
