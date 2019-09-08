@@ -44,12 +44,19 @@ $('.round__div').on('click', (event) => {
   
   if (event.target.id === 'point') {
     game.round.turn(event.target.parentElement.previousElementSibling.dataset.id, event.target.dataset.id)
+    $(".questions__current--question--prompt").show();
+    $(".questions__current--question").show();
+    $(".answer-incorrect-banner").hide();
+    $(".answer-correct-banner").hide();
+    // $(".round__point--value").attr("disabled", true)
   }
+
 
   if (event.target.id === 'catagory-1') {
     console.log('class 1')
     $(".round__point--container").not($(event.target).next()).slideUp();
     $(event.target).next().slideToggle('slow')
+    
   }
 
   if (event.target.id === 'catagory-2') {
@@ -105,8 +112,9 @@ $('.questions__current--question--submit--btn').click(function() {
   // update score
   $(".round__point--container").slideUp();
   let playersAnswer = $(`.questions__current--question--answer--input`).val();
-  $(".questions__current--question--prompt").hide();
-  $(".questions__current--question").hide();
+    $(".questions__current--question--prompt").hide();
+    $(".questions__current--question").hide();
+    $(".questions__current--player").hide();
   
   game.round.getPlayerAnswer(playersAnswer);
 
