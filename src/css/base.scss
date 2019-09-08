@@ -39,14 +39,9 @@ body {
   padding: 20px;
   display: none;
   text-align: center;
-  border: 5px solid #d86a6a;
+  border: 10px solid #f03506;
   top: 90%;
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: auto;
-  }
+  color: honeydew;
 }
 
 .answer-correct-banner {
@@ -54,14 +49,9 @@ body {
   padding: 20px;
   display: none;
   text-align: center;
-  border: 5px solid #d86a6a;
+  border: 10px solid #1847c9;
   top: 90%;
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: auto;
-  }
+  color: goldenrod;
 }
 
 header {
