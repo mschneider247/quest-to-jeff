@@ -43,6 +43,13 @@ export default {
   updatePlayersMarker(currentPlayer, nextPlayer) {
     $(`#player__${currentPlayer}--marker`).fadeOut();
     $(`#player__${nextPlayer.id}--marker`).fadeIn();
+  },
+
+  appendDailyDouble() {
+    $('.questions__current--question--daily--double--container').append(`
+    <p class="questions__current--question--daily--double"> DAILY DOUBLE! </p>
+    <input class='questions__--daily--double--input' type='text' placeholder='Wager'>
+    <button class='questions__--daily--double--button'>Submit Wager</button>`);
   }
 
 };

@@ -1,4 +1,5 @@
 import Round from "./Round";
+import domUpdates from "./domUpdates";
 
 class Clue {
   constructor(clue, dailyDouble) {
@@ -11,6 +12,7 @@ class Clue {
   updatePointValue(pValue) {
     if (this.dailyDouble) {
       // dom updates for daily double in question area
+      domUpdates.appendDailyDouble(this.answer);
       return pValue * 2
     } else {
       return pValue
