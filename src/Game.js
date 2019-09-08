@@ -2,6 +2,7 @@ import Player from '../src/Player';
 import Round from '../src/Round';
 import domUpdates from "./domUpdates";
 
+
 class Game {
   constructor(data) {
     this.categories = this.createCategories(data.categories)
@@ -9,6 +10,7 @@ class Game {
     this.players = [];
     this.roundCounter = 0; // goes up to 3
     this.round;
+    this.roundTwo;
     this.fourCategories;
   }
   
@@ -67,20 +69,17 @@ class Game {
   startRound(game) {
     if (this.roundCounter === 0) {
       this.roundCounter++;
-      this.round = new Round(this.getCluesForRound(), game, this.fourCategories);
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter);
       domUpdates.appendCurrentPlayerToDOM(this.round.currentPlayer.name);
-      // this.round.turn();
-      // this.round.nextPlayer(game);
-      // this.round.getToNextRound();
       // append round on domUpdates
     } else if (this.roundCounter === 1) {
+      console.log('ISS ROUND TWO MODAFUCKAAAAAAAA!')
       this.roundCounter++;
-      // we want to instantiate a new class of round 
-      this.round = new Round(this.getCluesForRound(), game, this.fourCategories);
-      // this.round.current clues
-      // loop through it to attack the point values
-      // and increase the point values times 2
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
+      domUpdates.removePreviousRound();
+      domUpdates.appendCategoriesToDOM(this.round.fourCategories, 2)
+      
       // on dom updates we change the point value board
     } else if (this.roundCounter > 1) {
       // start round 3
