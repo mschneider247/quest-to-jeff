@@ -31,6 +31,8 @@ $('.start-game-btn').click(function(e) {
     .catch(err => console.log(err));
   $('.welcome-banner').hide();
   $('.main-game').fadeIn('swing');
+  $(".questions__current--question--prompt").hide();
+  $(".questions__current--question").hide();
   
 })
 
@@ -48,7 +50,7 @@ $('.round__div').on('click', (event) => {
     $(".questions__current--question").show();
     $(".answer-incorrect-banner").hide();
     $(".answer-correct-banner").hide();
-    // $(".round__point--value").attr("disabled", true)
+    $(".round__point--value").prop("disabled", true)
   }
 
 
