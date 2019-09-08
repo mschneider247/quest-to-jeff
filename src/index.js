@@ -104,9 +104,11 @@ $('.questions__current--question--submit--btn').click(function() {
   // give feedback
   // update score
   let playersAnswer = $(`.questions__current--question--answer--input`).val();
+  $(".questions__current--question--prompt").hide();
+  $(".questions__current--question").hide();
+  
   game.round.getPlayerAnswer(playersAnswer);
-  console.log(game.round.currentPlayer.score);
-  console.log(game.players[0].score);
+
   // go to next player
 });
 
