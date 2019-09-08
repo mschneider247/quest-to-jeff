@@ -48,9 +48,10 @@ $('.round__div').on('click', (event) => {
     if (game.roundCounter === 2) {
       game.roundTwo.turnRoundTwo(categoryID, pointValueID);
     } else {
+      console.log('Line 51 index.js', categoryID, pointValueID)
       game.round.turn(categoryID, pointValueID);
     }
-    game.round.turn(event.target.parentElement.previousElementSibling.dataset.id, event.target.dataset.id)
+    // game.round.turn(event.target.parentElement.previousElementSibling.dataset.id, event.target.dataset.id)
     $(".questions__current--question--prompt").show();
     $(".questions__current--question").show();
     $(".answer-incorrect-banner").hide();

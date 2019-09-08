@@ -10,6 +10,7 @@ class Game {
     this.players = [];
     this.roundCounter = 0; // goes up to 3
     this.round;
+    this.roundTwo;
     this.fourCategories;
   }
   
@@ -73,9 +74,11 @@ class Game {
       domUpdates.appendCurrentPlayerToDOM(this.round.currentPlayer.name);
       // append round on domUpdates
     } else if (this.roundCounter === 1) {
+      console.log('ISS ROUND TWO MODAFUCKAAAAAAAA!')
       this.roundCounter++;
-      // we want to instantiate a new class of round 
-      this.round = new RoundTwo(this.getCluesForRound(), game, this.fourCategories);
+      this.roundTwo = new RoundTwo(this.getCluesForRound(), game, this.fourCategories);
+      domUpdates.removePreviousRound();
+      domUpdates.appendCategoriesToDOM(this.round.fourCategories, 2)
       
       // on dom updates we change the point value board
     } else if (this.roundCounter > 1) {

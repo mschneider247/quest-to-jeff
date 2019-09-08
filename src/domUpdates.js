@@ -66,6 +66,11 @@ export default {
     <p class="questions__current--question--daily--double"> DAILY DOUBLE! </p>
     <input class='questions__--daily--double--input' type='text' placeholder='Wager'>
     <button class='questions__--daily--double--button'>Submit Wager</button>`);
+  },
+
+  removePreviousRound() {
+    $('.round__point--container').remove();
+    $('.round__catagory').remove();
   }
 
 };

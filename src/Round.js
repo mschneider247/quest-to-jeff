@@ -57,7 +57,7 @@ class Round {
 
 
   getToNextRound() {
-    if (this.turnCounter === 16) {
+    if (this.turnCounter === 2) {
       // end the round and take it to the next
       // was thinking of invoking new round here
       console.log('this is line 62 of Round ', this.game);

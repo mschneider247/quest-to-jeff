@@ -27,9 +27,9 @@ class RoundTwo extends Round {
 
   turnRoundTwo(categoryId, pointValueId) { 
     console.log('turn inputs', categoryId, pointValueId)
-    console.log('Round turn Method', this.turnCounter);
-    // user input
-    this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkBothDailyDoubles());
+    // console.log('Round turn Method', this.turnCounter);
+    // console.log(this);
+    this.clue = new Clue(super.getClue(categoryId, pointValueId), this.checkBothDailyDoubles());
     console.log(this.clue)
     // display question with clue.question
     domUpdates.appendQuestionToDOM(this.clue.question);
