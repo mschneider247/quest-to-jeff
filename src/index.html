@@ -3,6 +3,7 @@
   <head>
     <title>A Quest For Jeff</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body> 
     <section class='welcome-banner'>
@@ -47,12 +48,16 @@
       </div>
     </section> 
     <section class="questions">
-      <container class="questions__current--player">
-        <p class="questions__current--player--title">Current Player</p>
-        <h3 class="questions__current--player--name">Player 1</h3>
-      </container>
+        <section class='answer-incorrect-banner'>
+            <h2 class='header'>You Answered Incorrect!!! The correct Answer was...</h2>
+            <h3 class='about-game'> You are wrong! </h3>
+          </section> 
+          <section class='answer-correct-banner'>
+              <h2 class='header'>Great Job!!!</h2>
+              <h3 class='about-game'> You are right!!!</h3>
+          </section>
       <container class="questions__current--question">
-        <p class="questions__current--question--daily--double">Daily Double</p>
+        <div class='questions__current--question--daily--double--container'></div>
         <p class="questions__current--question--points"><span></span> Points</p>
         <p class="questions__current--question--title">Question:</p>
         <h4 class="questions__current--question--prompt"></h4>

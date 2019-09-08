@@ -4,6 +4,7 @@ $primary-background: white;
 body {
   background-image: url("../images/JeffQuest.jpg");
   background-size: 100%;
+  background-repeat: no-repeat;
   color: white;
   display: grid;
   grid-template-areas: 
@@ -31,6 +32,36 @@ body {
   button {
     font-size: 20px;
   } 
+}
+
+.answer-incorrect-banner {
+  position: relative;
+  padding: 20px;
+  display: none;
+  text-align: center;
+  border: 5px solid #d86a6a;
+  top: 90%;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+  }
+}
+
+.answer-correct-banner {
+  position: relative;
+  padding: 20px;
+  display: none;
+  text-align: center;
+  border: 5px solid #d86a6a;
+  top: 90%;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+  }
 }
 
 header {
@@ -95,6 +126,10 @@ h1 {
   -moz-appearance: none;
 }
 
+.questions__current--player {
+  display: none;
+}
+
 .round {
   grid-area: round;
   display: flex;
@@ -107,11 +142,16 @@ h1 {
 }
 
 .round__div,
-.round__point--container,
+.round__point--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .questions__current--question {
   display: flex;
   flex-direction: column;
   align-items: center;
+  // display: none;
 }
 
 .player-marker {
@@ -128,3 +168,8 @@ h1 {
     color: black;
   }
 }
+
+// @media only screen and (max-width: 800px) {
+
+//   background-size: 800px;
+// }

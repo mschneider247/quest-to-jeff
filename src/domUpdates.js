@@ -8,6 +8,13 @@ export default {
     })
   }, // have a comma inbetween each function
 
+  appendAnswerBannerToDOM(players) {
+    players.forEach((player) => {
+      $(`#player__${player.id}--name`).text(player.name);
+      $(`#player__${player.id}--score`).text(player.score);
+    })
+  },
+
 
   updatePlayersScore(playerID, currentScore) {
     $(`#player__${playerID}--score`).text(currentScore)
@@ -40,9 +47,16 @@ export default {
     $('.questions__current--player--name').html(currentPlayer);
   }, 
 
-  updatePlayersMarker(currentPlayer, nextPalyer) {
+  updatePlayersMarker(currentPlayer, nextPlayer) {
     $(`#player__${currentPlayer}--marker`).fadeOut();
-    $(`#player__${nextPalyer.id}--marker`).fadeIn();
+    $(`#player__${nextPlayer.id}--marker`).fadeIn();
+  },
+
+  appendDailyDouble() {
+    $('.questions__current--question--daily--double--container').append(`
+    <p class="questions__current--question--daily--double"> DAILY DOUBLE! </p>
+    <input class='questions__--daily--double--input' type='text' placeholder='Wager'>
+    <button class='questions__--daily--double--button'>Submit Wager</button>`);
   }
 
 };
