@@ -48,7 +48,7 @@ $('.round__div').on('click', (event) => {
     $(".questions__current--question").show();
     $(".answer-incorrect-banner").hide();
     $(".answer-correct-banner").hide();
-    $(".round__point--value").attr("disabled", true)
+    // $(".round__point--value").attr("disabled", true)
   }
 
 

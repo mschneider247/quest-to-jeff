@@ -56,8 +56,8 @@ export default {
     $(".answer-correct-banner").show();
   },
 
-  appendPlayerWrongAnswer() {
-    $(".answer-incorrect-banner").find('h3').html(this.clue.answer)
+  appendPlayerWrongAnswer(clue) {
+    $(".answer-incorrect-banner").find('h3').html(clue.answer)
     $(".answer-incorrect-banner").show();
   },
 
