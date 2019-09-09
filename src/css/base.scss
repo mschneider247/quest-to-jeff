@@ -1,15 +1,51 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: white;
-$transparent-background: hsla(35, 100%, 83%, 0.8);
-$extra-transparent: hsla(35, 100%, 83%, 0.4);
+$primary-white: hsla(0, 4%, 100%, 98%);
+$primary-black: hsla(0, 85%, 8%, 98%);
+$black-black: black;
+$white-white: white;
+$transparent-background: hsla(35, 100%, 83%, 0.9);
+$extra-transparent: hsla(0, 13%, 30%, 0.45);
 $incorrect: #d86a6a;
 
 body {
-  background-color: black;
+  background-color: $black-black;
   background-image: url("../images/JeffQuest.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
-  color: white;
+}
+
+.welcome-banner {
+  color: $primary-black;
+  padding: 20px;
+  text-align: center;
+  border: 5px solid $incorrect;
+  border-radius: 15px;
+  background-color: $transparent-background;
+  margin-top: 14%;
+
+  .name-input {
+    height: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+
+    input {
+      border-radius: 5px;
+      border: 1px solid $primary-black;
+      margin: 10px;
+    }
+  }
+
+  button {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    border-radius: 15px;
+    font-size: 20px;
+  }
 }
 
 main {
@@ -23,32 +59,25 @@ main {
   grid-template-rows: 20% 60% 20%;
 }
 
-.welcome-banner {
-  color: black;
-  padding: 20px;
-  text-align: center;
-  border: 5px solid $incorrect;
-  border-radius: 15px;
+header {
+  grid-area: head;
+  color: $white-white;
+  font-size: 1.2em;
+}
+
+.header {
+  margin-left: 13%;
+}
+
+header button {
   background-color: $transparent-background;
-  margin-top: 14%;
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    margin: auto;
-    input {
-      border-radius: 5px;
-      border: 1px solid black;
-      margin: 10px;
-    }
-  }
-  button {
-    margin-top: 5%;
-    margin-left: 5%;
-    width: 90%;
-    border-radius: 15px;
-    font-size: 20px;
-  } 
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  height: 40px;
+  width: 80px;
+  border: 2px solid $incorrect;
+  border-radius: 5px;
 }
 
 .answer-incorrect-banner {
@@ -74,25 +103,6 @@ main {
   text-align: center;
 }
 
-header {
-  grid-area: head;
-}
-
-.header {
-  margin-left: 13%;
-}
-
-header button {
-  background-color: $transparent-background;
-  position: absolute;
-  top: 3%;
-  right: 5%;
-  height: 40px;
-  width: 80px;
-  border: 2px solid $incorrect;
-  border-radius: 5px;
-}
-
 .player {
   grid-area: player;
   display: flex;
@@ -100,12 +110,12 @@ header button {
 }
 
 .player--score {
-  color: black;
+  color: $white-white;
   background-color: $extra-transparent;
   grid-area: player;  
   margin: 10px;
   text-align: center;
-  border: solid 2px #ffffff;
+  border: solid 2px $primary-white;
   border-radius: 15px;
   padding-right: 10px;
   .player__name {
@@ -144,7 +154,7 @@ h1 {
   width: 100%;
   background-color: $transparent-background;
   border-radius: 5px;
-  border: 2px solid white;
+  border: 2px solid $primary-white;
   transition: background 250ms ease-in-out, 
                 transform 150ms ease;
   -webkit-appearance: none;
@@ -159,11 +169,11 @@ h1 {
 }
 
 .round__div {
-  color: black;
+  color: $primary-black;
   background-color: $extra-transparent;
   border-radius: 5px;
   font-size: 22px;
-  border: 2px solid white;
+  border: 2px solid $primary-white;
   height: 140px;
   margin-top: 10px;
   width: 120%;
@@ -174,8 +184,24 @@ h1 {
   background-color: $extra-transparent;
   font-size: 22px;
   border-radius: 5px;
-  border: 2px solid white;
+  border: 2px solid $primary-white;
   width: 98%;
+}
+
+.round__current--title,
+.round__catagory--prompt,
+.round__point--prompt,
+.round__point--value {
+  text-align: center;
+  color: $white-white;
+}
+
+.round__point--value {
+  padding: 0% 20%;
+  background-color: $primary-white;
+  color: $primary-black;
+  border: 2px solid $incorrect;
+  border-radius: 15px;
 }
 
 .round__div,
@@ -194,10 +220,10 @@ h1 {
   margin-top: 3%;
   margin-left: 5%;
   width: 80%;
-  color: black;
-  background-color: $extra-transparent;
+  color: $primary-black;
+  background-color: $transparent-background;
   border-radius: 5px;
-  border: 2px solid white;
+  border: 2px solid $primary-white;
   grid-area: question;
   display: flex;
   flex-direction: column;
@@ -205,7 +231,7 @@ h1 {
 }
 
 .player-marker {
-  animation: pulse 2s infinite;
+  animation: pulse 1.8s infinite;
 }
 
 @keyframes pulse {
@@ -213,9 +239,9 @@ h1 {
     opacity: 0.5;
   }
   50% {
-    font-size: 6em;
+    font-size: 1.8em;
     opacity: 1;
-    color: black;
+    color: $primary-black;
   }
 }
 
