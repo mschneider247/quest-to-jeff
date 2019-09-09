@@ -186,6 +186,7 @@ h1 {
   border-radius: 5px;
   border: 2px solid $primary-white;
   width: 98%;
+  padding-bottom: 10%;
 }
 
 .round__current--title,
@@ -194,14 +195,26 @@ h1 {
 .round__point--value {
   text-align: center;
   color: $white-white;
+  font-size: 18px;
+  margin-bottom: 9%;
 }
 
 .round__point--value {
-  padding: 0% 20%;
+  padding: 2% 20%;
+  margin: 5% 0;
   background-color: $primary-white;
   color: $primary-black;
   border: 2px solid $incorrect;
   border-radius: 15px;
+}
+
+.round__point--value:hover {
+  transform: scale(1.1);
+}
+
+.round__point--value:disabled {
+  background-color: grey;
+  color: $incorrect;
 }
 
 .round__div,
