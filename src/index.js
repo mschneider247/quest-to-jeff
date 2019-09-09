@@ -47,6 +47,8 @@ $('.round__div').on('click', (event) => {
   if (event.target.id === 'point') {
     let categoryID = event.target.parentElement.previousElementSibling.dataset.id;
     let pointValueID = event.target.dataset.id;
+    let nearestButton = event.target.closest('#point')
+    console.log(nearestButton)
     if (game.roundCounter === 2) {
       game.round.turn(categoryID, pointValueID, game.roundCounter);
     } else {
@@ -58,7 +60,7 @@ $('.round__div').on('click', (event) => {
     $(".questions__current--question").show();
     $(".answer-incorrect-banner").hide();
     $(".answer-correct-banner").hide();
-    $(".round__point--value").prop("disabled", true)
+    $(nearestButton).prop('disabled', true);
   }
 
 
