@@ -55,8 +55,8 @@ class Round {
     } else {
       this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble());
     }
-    domUpdates.appendQuestionToDOM(this.clue.question);
-    domUpdates.appendPointValueToDOM(this.clue.pValue);
+    domUpdates.appendQuestionToDOM(this.clue.question, this.clue.pValue, this.checkDailyDouble());
+    // domUpdates.appendPointValueToDOM(this.clue.pValue, this.checkDailyDouble());
   }
 
 

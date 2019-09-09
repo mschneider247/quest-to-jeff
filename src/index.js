@@ -61,12 +61,18 @@ $('.round__div').on('click', (event) => {
     $(".round__point--value").prop("disabled", true)
   }
 
-  $('.questions__current--question--daily--double--container').on('click', (event) => {
+  let tempCounter = 0;
+
+  $('.questions__current--question--daily--double--container').unbind().on('click', (event) => {
     if (event.target.className === 'questions__--daily--double--button') {
-      game.round.clue.pValue < parseInt($('.questions__--daily--double--input').val()) ? (domUpdates.appendtooHighWagerErr(), 
-      console.log('WAGER TOO HIGH!!')) :
-      (game.round.clue.pValue = parseInt($('.questions__--daily--double--input').val()),
-      domUpdates.appendUpdateClueValue())
+      if (parseInt($('.questions__--daily--double--input').val()) > game.round.clue.pValue) {
+        domUpdates.appendTooHighWagerErr()
+      } else {
+        game.round.clue.pValue = parseInt($('.questions__--daily--double--input').val())
+        tempCounter++
+        $('.questions__current--question--points').append(`<p class="questions__current--question--points">${game.round.clue.pValue}</p>`)
+        $('.questions__current--question--prompt').html(game.round.clue.question);
+      }
     }
   }) 
 
