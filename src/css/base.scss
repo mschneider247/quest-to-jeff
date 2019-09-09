@@ -80,6 +80,10 @@ header button {
   border-radius: 5px;
 }
 
+.header__btn:hover {
+  transform: scale(1.1);
+}
+
 .answer-incorrect-banner {
   border: 5px solid $incorrect;
   color: rgb(71, 0, 0);
@@ -159,6 +163,11 @@ h1 {
                 transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+
+.round__catagory:hover {
+  transform: scale(1.1);
+  border-color: $incorrect;
 }
 
 .round {
