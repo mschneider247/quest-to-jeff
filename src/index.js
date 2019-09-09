@@ -72,12 +72,25 @@ $('.round__div').on('click', (event) => {
         $('.questions__current--question--points').append(`<p class="questions__current--question--points">${game.round.clue.pValue}</p>`);
         $('.questions__current--question--prompt').html(game.round.clue.question);
         $('.questions__current--question--daily--double--container').remove();
+        findHighestRemainingValue();
       }
       $('.questions__--daily--double--input').val('')
     }
   }) 
 
+  const findHighestRemainingValue = () => {
+    const searchButtonsPoints = $(".round__point--container").find('button')
+    let buttonKeys = Object.keys(searchButtonsPoints)
+    let findAvailableValues = buttonKeys.filter((key) => searchButtonsPoints[key].disabled === false)
+      .map((key) => {
+        return searchButtonsPoints[key].innerText
+      }).sort((a, b) => b - a)[0];
+    // buttonKeys.filter((key) => searchButtonsPoints[key].disabled === false
+    console.log(findAvailableValues)
+  }
 
+  // prevObject[""0""].children[1].disabled
+  // [2].disabled
   if (event.target.id === 'catagory-1') {
     console.log('class 1')
     $(".round__point--container").not($(event.target).next()).slideUp();
