@@ -71,6 +71,14 @@ export default {
   removePreviousRound() {
     $('.round__point--container').remove();
     $('.round__catagory').remove();
+  }, 
+
+  appendtooHighWagerErr() {
+    $('.questions__current--question--daily--double').append('<p class="wager--err"> Wager Too High!</p>')
+  },
+
+  appendUpdateClueValue() {
+
   }
 
 };
