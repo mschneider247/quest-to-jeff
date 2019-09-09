@@ -12,12 +12,7 @@ class Clue {
 
   updatePointValue(pValue) {
     if (this.dailyDouble) {
-      // dom updates for daily double in question area
       domUpdates.appendDailyDouble();
-      // have DOM show what clue is a daily double after the update/pop up goes away
-      // do on logic on index.js
-      return pValue * 2
-    } else {
       return pValue
     }
   }

@@ -230,6 +230,12 @@ h1 {
   align-items: center;
 }
 
+.wager--err {
+  color: red;
+  font-size: 10px;
+  font-weight: 300;
+}
+
 .player-marker {
   animation: pulse 1.8s infinite;
 }

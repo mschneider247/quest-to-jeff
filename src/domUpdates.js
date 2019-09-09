@@ -35,13 +35,18 @@ export default {
     })
   },
 
-  appendQuestionToDOM(question) {
-    $('.questions__current--question--prompt').html(question);
+  appendQuestionToDOM(question, value, dailyDouble) {
+    if (dailyDouble === true) {
+      $('.questions__current--question--prompt').hide(question);
+    } else {
+      $('.questions__current--question--prompt').html(question);
+      $('.questions__current--question--points').html(value);
+    }
   },
 
-  appendPointValueToDOM(value) {
-    $('.questions__current--question--points').html(value);
-  },
+  // appendPointValueToDOM(value) {
+  //   $('.questions__current--question--points').html(value);
+  // },
 
   appendCurrentPlayerToDOM(currentPlayer) {
     $('.questions__current--player--name').html(currentPlayer);
@@ -71,6 +76,10 @@ export default {
   removePreviousRound() {
     $('.round__point--container').remove();
     $('.round__catagory').remove();
+  }, 
+
+  appendTooHighWagerErr() {
+    $('.questions__current--question--daily--double').append('<p class="wager--err">Wager Too High 🔆 Drop it down ⬇️</p>')
   }
 
 };
