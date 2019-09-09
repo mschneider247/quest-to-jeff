@@ -65,7 +65,7 @@ $('.round__div').on('click', (event) => {
 
   $('.questions__current--question--daily--double--container').unbind().on('click', (event) => {
     if (event.target.className === 'questions__--daily--double--button') {
-      if (parseInt($('.questions__--daily--double--input').val()) > game.round.clue.pValue) {
+      if (parseInt($('.questions__--daily--double--input').val()) > parseInt(highestWagerPossible())) {
         domUpdates.appendTooHighWagerErr()
       } else {
         game.round.clue.pValue = parseInt($('.questions__--daily--double--input').val())
@@ -80,17 +80,16 @@ $('.round__div').on('click', (event) => {
 
   const findHighestRemainingValue = () => {
     const searchButtonsPoints = $(".round__point--container").find('button')
-    let buttonKeys = Object.keys(searchButtonsPoints)
-    let findAvailableValues = buttonKeys.filter((key) => searchButtonsPoints[key].disabled === false)
+    return Object.keys(searchButtonsPoints).filter((key) => searchButtonsPoints[key].disabled === false)
       .map((key) => {
         return searchButtonsPoints[key].innerText
       }).sort((a, b) => b - a)[0];
-    // buttonKeys.filter((key) => searchButtonsPoints[key].disabled === false
-    console.log(findAvailableValues)
   }
 
-  // prevObject[""0""].children[1].disabled
-  // [2].disabled
+  const highestWagerPossible = () => {
+    return (findHighestRemainingValue() > parseInt(game.round.currentPlayer.score)) ? findHighestRemainingValue() : parseInt(game.round.currentPlayer.score)
+  }
+
   if (event.target.id === 'catagory-1') {
     console.log('class 1')
     $(".round__point--container").not($(event.target).next()).slideUp();
