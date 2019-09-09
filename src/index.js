@@ -61,6 +61,10 @@ $('.round__div').on('click', (event) => {
     $(".round__point--value").prop("disabled", true)
   }
 
+  $('.questions__current--question--daily--double--container').on('click', () => {
+    game.round.clue.pValue = parseInt($('.questions__--daily--double--input').val())
+  }) 
+
 
   if (event.target.id === 'catagory-1') {
     console.log('class 1')

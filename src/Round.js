@@ -18,10 +18,12 @@ class Round {
     this.fourCategories = fourCategories;
     this.clue;
     this.currentRound = currentRound;
+    this.wager;
   }
 
   checkDailyDouble() {
-    return (this.turnCounter === this.dailyDouble);
+    return true
+    // return (this.turnCounter === this.dailyDouble);
   }
 
   doubleClueScores(data) {
@@ -91,19 +93,16 @@ class Round {
     if (isCorrect === true) {
       domUpdates.appendPlayerCorrectAnswer();
       this.turnCounter++;
-      console.log('Round playerMethod turn counter', this.turnCounter);
       this.currentPlayer.score += this.clue.pValue;
       domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);
       this.nextPlayer();
     } else {
       domUpdates.appendPlayerWrongAnswer(this.clue);
       this.turnCounter++;
-      console.log(this.currentPlayer.score)
       this.currentPlayer.score -= this.clue.pValue;
       domUpdates.updatePlayersScore(this.currentPlayer.id, this.currentPlayer.score);
       this.nextPlayer();
     }
-    console.log('Current Turn', this.turnCounter)
     this.getToNextRound();
   }
 }
