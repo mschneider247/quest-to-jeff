@@ -26,10 +26,10 @@ export default {
         `<button class="round__catagory" id="catagory-${i + 1}" data-id=${category.id}>${category.category}</button>
     <container class="round__point--container" style="display: none;">
       <p class="round__point--prompt">Select Point Value</p>
-      <p class="round__point--value" id="point" data-id=${100 * round} disabled = "false">${100 * round}</p>
-      <p class="round__point--value" id="point" data-id=${200 * round}>${200 * round}</p>
-      <p class="round__point--value" id="point" data-id=${300 * round}>${300 * round}</p>
-      <p class="round__point--value" id="point" data-id=${400 * round}>${400 * round}</p>
+      <button class="round__point--value" id="point" data-id=${100 * round}>${100 * round}</button>
+      <button class="round__point--value" id="point" data-id=${200 * round}>${200 * round}</button>
+      <button class="round__point--value" id="point" data-id=${300 * round}>${300 * round}</button>
+      <button class="round__point--value" id="point" data-id=${400 * round}>${400 * round}</button>
     </container>
     `) 
     })
