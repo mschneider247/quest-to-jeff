@@ -66,6 +66,21 @@ export default {
     $(".answer-incorrect-banner").show();
   },
 
+  appendRoundBanner(round) {
+    $('main').hide();
+    $(".round-banner").show();
+    $('.banner-header').html(`Welcome to Round ${round + 1}!!!`)
+    setTimeout(function() {
+      $('main').show();
+      $(".round-banner").hide();
+    }, 2000)
+  },
+
+  hideFeedback() {
+    $(".answer-incorrect-banner").hide();
+    $(".answer-correct-banner").hide();
+  },
+
   appendDailyDouble() {
     $('.questions__current--question--daily--double--container').append(`
     <p class="questions__current--question--daily--double"> DAILY DOUBLE! </p>

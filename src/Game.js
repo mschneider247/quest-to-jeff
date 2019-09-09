@@ -68,6 +68,7 @@ class Game {
 
   startRound(game) {
     if (this.roundCounter === 0) {
+      domUpdates.appendRoundBanner(this.roundCounter);
       this.roundCounter++;
       this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter);
@@ -75,11 +76,13 @@ class Game {
       // append round on domUpdates
     } else if (this.roundCounter === 1) {
       console.log('ISS ROUND TWO MODAFUCKAAAAAAAA!')
+      domUpdates.hideFeedback();
+      domUpdates.appendRoundBanner(this.roundCounter);
       this.roundCounter++;
       this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
       domUpdates.removePreviousRound();
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, 2)
-      
+
       // on dom updates we change the point value board
     } else if (this.roundCounter > 1) {
       // start round 3

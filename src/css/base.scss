@@ -234,6 +234,19 @@ h1 {
   align-items: center;
 }
 
+.round-banner{
+  position: absolute; 
+  display: none;  
+  top: 15%;
+  left: 25%;
+  background-color: $extra-transparent;
+  color: $primary-white;
+  border: 1px solid $incorrect;
+  height: 40px;
+  width: 240px; 
+  padding: 2%;
+}
+
 .questions {
   grid-area: question;
 }

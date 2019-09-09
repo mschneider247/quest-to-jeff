@@ -20,6 +20,20 @@ $('.name-input').keydown(function() {
   }
 });
 
+$('.questions__current--question--answer--input').keyup(function() {
+  if (
+    $('.questions__current--question--answer--input').val() !== '') {
+    $('.questions__current--question--submit--btn').prop('disabled', false);
+  }
+});
+
+// $('.questions__--daily--double--input').keyup(function() {
+//   if (
+//     $('.questions__--daily--double--input').val() !== '') {
+//     $('.questions__--daily--double--button').prop('disabled', false);
+//   }
+// }); 
+
 $('.start-game-btn').click(function(e) {
   e.preventDefault();
   let player1 = $('#player__one--name-input').val();
@@ -31,8 +45,8 @@ $('.start-game-btn').click(function(e) {
     .catch(err => console.log(err));
   $('.welcome-banner').hide();
   $('.main-game').fadeIn('swing');
-  $(".questions__current--question--prompt").hide();
-  $(".questions__current--question").hide();
+    $(".questions__current--question--prompt").hide();
+    $(".questions__current--question").hide();
   
 })
 
@@ -62,20 +76,6 @@ $('.round__div').on('click', (event) => {
     $(".answer-correct-banner").hide();
     $(nearestButton).prop('disabled', true);
   }
-
-  $('.questions__current--question--daily--double--container').unbind().on('click', (event) => {
-    if (event.target.className === 'questions__--daily--double--button') {
-      if (parseInt($('.questions__--daily--double--input').val()) > game.round.clue.pValue) {
-        domUpdates.appendTooHighWagerErr()
-      } else {
-        game.round.clue.pValue = parseInt($('.questions__--daily--double--input').val())
-        $('.questions__current--question--points').append(`<p class="questions__current--question--points">${game.round.clue.pValue}</p>`);
-        $('.questions__current--question--prompt').html(game.round.clue.question);
-        $('.questions__current--question--daily--double--container').remove();
-      }
-      $('.questions__--daily--double--input').val('')
-    }
-  }) 
 
 
   if (event.target.id === 'catagory-1') {
