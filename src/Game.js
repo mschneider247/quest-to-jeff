@@ -8,7 +8,7 @@ class Game {
     this.categories = this.createCategories(data.categories)
     this.clues = data.clues;
     this.players = [];
-    this.roundCounter = 0; // goes up to 3
+    this.roundCounter = 1; // goes up to 3
     this.round;
     this.roundTwo;
     this.fourCategories;
@@ -67,24 +67,24 @@ class Game {
   }
 
   startRound(game) {
-    if (this.roundCounter === 0) {
+    if (this.roundCounter === 1) {
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.roundCounter);
       domUpdates.appendRoundBanner(this.roundCounter);
-      this.roundCounter++;
-      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter);
       domUpdates.appendCurrentPlayerToDOM(this.round.currentPlayer.name);
-      // append round on domUpdates
-    } else if (this.roundCounter === 1) {
+      domUpdates.appendCurrentRound(this.roundCounter);
+      this.roundCounter++;
+    } else if (this.roundCounter === 2) {
       console.log('ISS ROUND TWO MODAFUCKAAAAAAAA!')
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.roundCounter);
+      domUpdates.removePreviousRound();
       domUpdates.hideFeedback();
+      domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter)
+      domUpdates.appendCurrentRound(this.roundCounter);
       domUpdates.appendRoundBanner(this.roundCounter);
       this.roundCounter++;
-      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
-      domUpdates.removePreviousRound();
-      domUpdates.appendCategoriesToDOM(this.round.fourCategories, 2)
-
       // on dom updates we change the point value board
-    } else if (this.roundCounter > 1) {
+    } else if (this.roundCounter > 2) {
       // start round 3
       // this.round.current clues[0]
       // have just one category and one question

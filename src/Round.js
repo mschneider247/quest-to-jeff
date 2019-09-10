@@ -5,14 +5,10 @@ import domUpdates from "./domUpdates";
 
 class Round {
   constructor(data, game, fourCategories, currentRound) {
-    if (currentRound === 1) {
-      this.currentClues = this.doubleCluesScore(data);
-    } else {
-      this.currentClues = data;
-    }
-    this.turnCounter = 0;
+    this.currentClues = this.doubleClueScores(data, currentRound);
+    this.turnCounter = 1;
     this.dailyDouble = Math.ceil(Math.random() * 4);
-    this.dailyDoubleTwo = Math.ceil(Math.random() * 16);
+    this.dailyDoubleTwo = Math.ceil(Math.random() * 4);
     this.currentPlayer = game.players[0];
     this.game = game;
     this.fourCategories = fourCategories;
@@ -22,18 +18,20 @@ class Round {
   }
 
   checkDailyDouble() {
-    // return true
     return (this.turnCounter === this.dailyDouble);
   }
 
-  doubleClueScores(data) {
+  doubleClueScores(data, currentRound) {
     return data.map((clue) => {
-      clue.pointValue *= 2;
+      clue.pointValue *= currentRound;
       return clue;
     })
   }
 
   checkBothDailyDoubles() {
+    console.log('checking both daily doubles')
+    console.log('this.dailyDouble: ', this.dailyDouble, this.dailyDoubleTwo)
+    console.log('this is checking both daily doubles', this.turnCounter === this.dailyDouble || this.turnCounter === this.dailyDoubleTwo)
     return (this.turnCounter === this.dailyDouble || this.turnCounter === this.dailyDoubleTwo);
   }
 
@@ -46,11 +44,13 @@ class Round {
     });
   }
 
-  turn(categoryId, pointValueId, currentRound) { 
-    console.log('turn inputs', categoryId, pointValueId)
+  turn(categoryId, pointValueId) { 
+    console.log('turn inputs', categoryId, pointValueId, this.currentRound)
     console.log('Round turn Method', this.turnCounter);
+    
     // user input
-    if (currentRound === 2) {
+    if (this.currentRound === 2) {
+      console.log('making new instance of clue for ROUND TWO')
       this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkBothDailyDoubles());
     } else {
       this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble());

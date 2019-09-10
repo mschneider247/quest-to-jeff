@@ -71,10 +71,10 @@ $('.round__div').on('click', (event) => {
     let nearestButton = event.target.closest('#point')
     console.log(nearestButton)
     if (game.roundCounter === 2) {
-      game.round.turn(categoryID, pointValueID, game.roundCounter);
+      game.round.turn(categoryID, pointValueID);
     } else {
       console.log('Line 51 index.js', categoryID, pointValueID)
-      game.round.turn(categoryID, pointValueID, game.roundCounter);
+      game.round.turn(categoryID, pointValueID);
     }
     // game.round.turn(event.target.parentElement.previousElementSibling.dataset.id, event.target.dataset.id)
     $(".questions__current--question--prompt").show();
