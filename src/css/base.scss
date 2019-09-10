@@ -211,6 +211,22 @@ h1 {
   align-items: center;
 }
 
+.round-banner{
+  position: absolute; 
+  display: none;  
+  top: 15%;
+  left: 25%;
+  background-color: $transparent-background;
+  color: $primary-black;
+  border: 2px solid $incorrect;
+  height: 100px;
+  width: 500px; 
+  padding: 2%;
+  font-size: 2em;
+  padding-bottom: 4%;
+  border-radius: 15px;
+}
+
 .questions {
   grid-area: question;
 }

@@ -20,6 +20,28 @@ $('.name-input').keydown(function() {
   }
 });
 
+$('.questions__current--question--answer--input').keyup(function() {
+  if (
+    $('.questions__current--question--answer--input').val() !== '') {
+    $('.questions__current--question--submit--btn').prop('disabled', false);
+  }
+});
+
+// $('.questions__current--question').keyup(function() {
+//   if (
+//     ($('.questions__--daily--double--input').val() !== '') && (event.target.class === 'questions__--daily--double--input') ) {
+//     $('.questions__--daily--double--button').prop('disabled', false);
+//   }
+// }); 
+
+// $('.questions__--daily--double--input').keyup(function() {
+//   console.log('detecting keyup')
+//   if (
+//     $('.questions__--daily--double--input').val() !== '') {
+//     $('.questions__--daily--double--button').prop('disabled', false);
+//   }
+// }); 
+
 $('.start-game-btn').click(function(e) {
   e.preventDefault();
   let player1 = $('#player__one--name-input').val();
@@ -31,8 +53,8 @@ $('.start-game-btn').click(function(e) {
     .catch(err => console.log(err));
   $('.welcome-banner').hide();
   $('.main-game').fadeIn('swing');
-  $(".questions__current--question--prompt").hide();
-  $(".questions__current--question").hide();
+    $(".questions__current--question--prompt").hide();
+    $(".questions__current--question").hide();
   
 })
 
