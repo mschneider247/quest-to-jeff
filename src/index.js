@@ -65,26 +65,26 @@ $('.round__div').on('click', (event) => {
   if (event.target.id === 'catagory-1') {
     console.log('class 1')
     $(".round__point--container").not($(event.target).next()).slideUp();
-    $(event.target).next().slideToggle('slow')
+    $(event.target).next().slideToggle('fast')
     
   }
 
   if (event.target.id === 'catagory-2') {
     console.log('class 2')
     $(".round__point--container").not($(event.target).next()).slideUp();
-    $(event.target).next().slideToggle('slow')
+    $(event.target).next().slideToggle('fast')
   }
 
   if (event.target.id === 'catagory-3') {
     console.log('class 3')
     $(".round__point--container").not($(event.target).next()).slideUp();
-    $(event.target).next().slideToggle('slow')
+    $(event.target).next().slideToggle('fast')
   }
 
   if (event.target.id === 'catagory-4') {
     console.log('class 4')
     $(".round__point--container").not($(event.target).next()).slideUp();
-    $(event.target).next().slideToggle('slow')
+    $(event.target).next().slideToggle('fast')
   }
 })
 
