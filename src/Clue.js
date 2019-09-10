@@ -6,25 +6,23 @@ class Clue {
     console.log('This is the clue on', clue)
     this.question = clue.question
     this.answer = clue.answer
-    this.dailyDouble = dailyDouble;
-    this.pValue = this.updatePointValue(clue.pointValue);
+    this.dailyDouble = this.checkDailyDouble(dailyDouble);
+    this.pValue = clue.pointValue;
   }
 
-  updatePointValue(pValue) {
-    if (this.dailyDouble) {
+  checkDailyDouble(dailyDouble) {
+    if (dailyDouble) {
       domUpdates.appendDailyDouble();
-      return pValue
+      return true
     } else {
-      return pValue
+      return false
     }
   }
 
   checkAnswer(userAnswer) {
     if (userAnswer.toLowerCase() === this.answer.toLowerCase()) {
-      // dom updates to congragulate player
       return true;
     }
-    // dom updates to show correct answer and cardi b crying
     return false;
   }
 

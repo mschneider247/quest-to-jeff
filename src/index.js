@@ -3,9 +3,6 @@ import $ from 'jquery';
 import './css/base.scss';
 import domUpdates from "./domUpdates";
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images'
-
 import Game from './Game';
 $('#player__2--marker').hide();
 $('#player__3--marker').hide();
@@ -26,21 +23,6 @@ $('.questions__current--question--answer--input').keyup(function() {
     $('.questions__current--question--submit--btn').prop('disabled', false);
   }
 });
-
-// $('.questions__current--question').keyup(function() {
-//   if (
-//     ($('.questions__--daily--double--input').val() !== '') && (event.target.class === 'questions__--daily--double--input') ) {
-//     $('.questions__--daily--double--button').prop('disabled', false);
-//   }
-// }); 
-
-// $('.questions__--daily--double--input').keyup(function() {
-//   console.log('detecting keyup')
-//   if (
-//     $('.questions__--daily--double--input').val() !== '') {
-//     $('.questions__--daily--double--button').prop('disabled', false);
-//   }
-// }); 
 
 $('.start-game-btn').click(function(e) {
   e.preventDefault();
@@ -69,15 +51,13 @@ $('.round__div').on('click', (event) => {
     let categoryID = event.target.parentElement.previousElementSibling.dataset.id;
     let pointValueID = event.target.dataset.id;
     let nearestButton = event.target.closest('#point')
-    console.log(nearestButton)
     if (game.roundCounter === 2) {
+      console.log('point selected in round 2', categoryID, pointValueID)
       game.round.turn(categoryID, pointValueID);
     } else {
-      console.log('Line 51 index.js', categoryID, pointValueID)
+      console.log('point selected in round 1', categoryID, pointValueID)
       game.round.turn(categoryID, pointValueID);
     }
-    // game.round.turn(event.target.parentElement.previousElementSibling.dataset.id, event.target.dataset.id)
-    $(".questions__current--question--prompt").show();
     $(".questions__current--question").show();
     $(".answer-incorrect-banner").hide();
     $(".answer-correct-banner").hide();
@@ -116,9 +96,11 @@ $('.questions__current--question--daily--double--container').unbind().on('click'
       domUpdates.appendTooHighWagerErr()
     } else {
       game.round.clue.pValue = parseInt($('.questions__--daily--double--input').val())
-      $('.questions__current--question--points').append(`<p class="questions__current--question--points">${game.round.clue.pValue}</p>`);
-      $('.questions__current--question--title').after(`<h4 class="questions__current--question--prompt">${game.round.clue.question}</h4>`);
+      $('.questions__current--question--points').after(`<h2 class="questions__current--question--points--actual">Points: ${game.round.clue.pValue}</h2>`);
+      $('.questions__current--question--title').after(`<h4 class="questions__current--question--prompt">Question: ${game.round.clue.question}</h4>`);
+
       $('.questions__current--question--daily--double--container').remove();
+
       findHighestRemainingValue();
     }
     $('.questions__--daily--double--input').val('')
@@ -142,13 +124,9 @@ $(".header__btn").click(function () {
 });
 
 $('.questions__current--question--submit--btn').click(function() {
-  // check answer
-  // give feedback
-  // update score
   $(".round__point--container").slideUp();
   let playersAnswer = $(`.questions__current--question--answer--input`).val();
   clearAnswerField();
-  $(".questions__current--question--prompt").hide();
   $(".questions__current--question").hide();
   $(".questions__current--player").hide();
   $('.questions__current--question--prompt').remove();
@@ -156,12 +134,10 @@ $('.questions__current--question--submit--btn').click(function() {
   
   game.round.getPlayerAnswer(playersAnswer);
 
-  // go to next player
 });
 
 function clearAnswerField() {
   $(".questions__current--question--answer--input").val('');
-
 }
 
 console.log('This is the JavaScript entry file - your code begins here.');
