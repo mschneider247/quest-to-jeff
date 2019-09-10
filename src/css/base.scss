@@ -272,6 +272,11 @@ h1 {
   border-radius: 10px;
 }
 
+.questions__current--question--submit--btn:hover {
+  transform: scale(1.1);
+  
+}
+
 .answer-incorrect-banner,
 .answer-correct-banner {
   margin-top: 15%;
