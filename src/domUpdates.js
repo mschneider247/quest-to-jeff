@@ -36,7 +36,9 @@ export default {
   },
 
   appendQuestionToDOM(question, value, dailyDouble) {
+    $('.questions__current--question--submit--btn').prop('disabled', true);
     if (dailyDouble === true) {
+      // $('.questions__--daily--double--button').prop('disabled', true); 
       $('.questions__current--question--prompt').hide(question);
     } else {
       $('.questions__current--question--prompt').html(question);
@@ -59,11 +61,37 @@ export default {
 
   appendPlayerCorrectAnswer() {
     $(".answer-correct-banner").show();
+    setTimeout(function() {
+      $(".answer-correct-banner").hide();
+    }, 2000)
   },
 
   appendPlayerWrongAnswer(clue) {
     $(".answer-incorrect-banner").find('h3').html(clue.answer)
     $(".answer-incorrect-banner").show();
+    setTimeout(function() {
+      $(".answer-incorrect-banner").hide();
+    }, 2000)
+  },
+
+  // appendPlayerWrongAnswer(clue) {
+  //   $(".answer-incorrect-banner").find('h3').html(clue.answer)
+  //   $(".answer-incorrect-banner").show();
+  // },
+
+  appendRoundBanner(round) {
+    $('main').hide();
+    $(".round-banner").show();
+    $('.banner-header').html(`Welcome to Round ${round + 1}!!!`)
+    setTimeout(function() {
+      $('main').show();
+      $(".round-banner").hide();
+    }, 2000)
+  },
+
+  hideFeedback() {
+    $(".answer-incorrect-banner").hide();
+    $(".answer-correct-banner").hide();
   },
 
   appendDailyDouble() {
