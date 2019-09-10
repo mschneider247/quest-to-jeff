@@ -5,7 +5,7 @@ import domUpdates from "./domUpdates";
 
 class Round {
   constructor(data, game, fourCategories, currentRound) {
-    if (currentRound === 2) {
+    if (currentRound === 1) {
       this.currentClues = this.doubleCluesScore(data);
     } else {
       this.currentClues = data;

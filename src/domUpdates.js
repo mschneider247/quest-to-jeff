@@ -80,10 +80,6 @@ export default {
 
   appendTooHighWagerErr() {
     $('.questions__current--question--daily--double').append('<p class="wager--err">Wager Too High 🔆 Drop it down ⬇️</p>')
-  },
-
-  appendCurrentRound(currentRound) {
-    $('.round__current--num').html(currentRound)
   }
 
 };
