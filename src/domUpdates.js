@@ -59,12 +59,23 @@ export default {
 
   appendPlayerCorrectAnswer() {
     $(".answer-correct-banner").show();
+    setTimeout(function() {
+      $(".answer-correct-banner").hide();
+    }, 2000)
   },
 
   appendPlayerWrongAnswer(clue) {
     $(".answer-incorrect-banner").find('h3').html(clue.answer)
     $(".answer-incorrect-banner").show();
+    setTimeout(function() {
+      $(".answer-incorrect-banner").hide();
+    }, 2000)
   },
+
+  // appendPlayerWrongAnswer(clue) {
+  //   $(".answer-incorrect-banner").find('h3').html(clue.answer)
+  //   $(".answer-incorrect-banner").show();
+  // },
 
   appendRoundBanner(round) {
     $('main').hide();
