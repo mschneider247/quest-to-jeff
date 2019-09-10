@@ -4,10 +4,10 @@ A Quest For Jeff is a Jeopardy based game. We have three players and three round
 
 ## Created by:
 
-[Amanda Consuelo Sierra] (https://github.com/Asilo5)
-[Michael Schneider] (https://github.com/mschneider247)
-[Foster Taylor] (https://github.com/foster55f) 
-[Matthew Malone] (https://github.com/matthewdshepherd)
+([Amanda Consuelo Sierra] (https://github.com/Asilo5))
+([Michael Schneider] (https://github.com/mschneider247))
+([Foster Taylor] (https://github.com/foster55f)) 
+([Matthew Malone] (https://github.com/matthewdshepherd))
 
 ## Play Our Game!
 
@@ -25,9 +25,11 @@ To build our game, we used:
   - TDD
   - OOP
   - HTML
+  - Chai
+  - Mocha
+  - Webpack
   
- 
 ## Giff of our game
 
-![giff of A Quest To Jeff] ()
+![giff of A Quest To Jeff]()
 
