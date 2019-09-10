@@ -115,6 +115,10 @@ header button {
   }
 }
 
+.highlight-border {
+  border: solid 5px rgb(255, 208, 0);
+}
+
 h1 {
   font-family: cursive;
 }
@@ -310,16 +314,9 @@ h1 {
     opacity: 0.5;
   }
   50% {
-    font-size: 1.8em;
+    font-size: 2em;
     opacity: 1;
     color: $primary-black;
-  }
-}
-
-@media only screen and (max-width: 1150px) {
-
-  .round__catagory--prompt {
-    margin-bottom: 17%;
   }
 }
 
@@ -336,6 +333,13 @@ h1 {
 .player__score,
 .player__points {
   cursor: default;
+}
+
+@media only screen and (max-width: 1150px) {
+
+  .round__catagory--prompt {
+    margin-bottom: 17%;
+  }
 }
 
 @media only screen and (max-width: 850px) {
