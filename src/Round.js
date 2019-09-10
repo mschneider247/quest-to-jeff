@@ -15,6 +15,7 @@ class Round {
     this.clue;
     this.currentRound = currentRound;
     this.wager;
+    console.log(this.dailyDouble)
   }
 
   checkDailyDouble() {

@@ -117,7 +117,7 @@ $('.questions__current--question--daily--double--container').unbind().on('click'
     } else {
       game.round.clue.pValue = parseInt($('.questions__--daily--double--input').val())
       $('.questions__current--question--points').append(`<p class="questions__current--question--points">${game.round.clue.pValue}</p>`);
-      $('.questions__current--question--prompt').html(game.round.clue.question);
+      $('.questions__current--question--title').after(`<h4 class="questions__current--question--prompt">${game.round.clue.question}</h4>`);
       $('.questions__current--question--daily--double--container').remove();
       findHighestRemainingValue();
     }
@@ -137,30 +137,6 @@ const highestWagerPossible = () => {
   return (findHighestRemainingValue() > parseInt(game.round.currentPlayer.score)) ? findHighestRemainingValue() : parseInt(game.round.currentPlayer.score)
 }
 
-// $('#catagory-1').on('click', (event) => {
-//   // console.log('THIS IS FIRING!!!')
-//   $(".round__point--container").not($(event.target).next()).slideUp();
-//   $(event.target).next().slideToggle('slow') 
-// })
-
-// $('#catagory-2').click(() => {
-//   // console.log('THIS IS FIRING!!!')
-//   $(".round__point--container").not($(event.target).next()).slideUp();
-//   $(event.target).next().slideToggle('slow');
-// });
-
-// $('#catagory-3').click(() => {
-//   // console.log('THIS IS FIRING!!!')
-//   $(".round__point--container").not($(event.target).next()).slideUp();
-//   $(event.target).next().slideToggle('slow');
-// });
-
-// $('#catagory-4').click(() => {
-//   // console.log('THIS IS FIRING!!!')
-//   $(".round__point--container").not($(event.target).next()).slideUp();
-//   $(event.target).next().slideToggle('slow');
-// });
-
 $(".header__btn").click(function () {
   location.reload(true);
 });
@@ -175,6 +151,8 @@ $('.questions__current--question--submit--btn').click(function() {
   $(".questions__current--question--prompt").hide();
   $(".questions__current--question").hide();
   $(".questions__current--player").hide();
+  $('.questions__current--question--prompt').remove();
+  $('.questions__current--question--points--actual').remove();
   
   game.round.getPlayerAnswer(playersAnswer);
 
