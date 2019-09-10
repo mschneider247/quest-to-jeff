@@ -36,19 +36,12 @@ export default {
   },
 
   appendQuestionToDOM(question, value, dailyDouble) {
-    $('.questions__current--question--submit--btn').prop('disabled', true);
-    if (dailyDouble === true) {
-      // $('.questions__--daily--double--button').prop('disabled', true); 
-      $('.questions__current--question--prompt').hide(question);
-    } else {
-      $('.questions__current--question--prompt').html(question);
-      $('.questions__current--question--points').html(value);
+    if (!dailyDouble) {
+      $('.questions__current--question--submit--btn').prop('disabled', true);
+      $('.questions__current--question--title').after(`<h4 class="questions__current--question--prompt">Question: ${question}</h4>`)
+      $('.questions__current--question--points').after(`<h2 class="questions__current--question--points--actual">Points: ${value}</h2>`)
     }
   },
-
-  // appendPointValueToDOM(value) {
-  //   $('.questions__current--question--points').html(value);
-  // },
 
   appendCurrentPlayerToDOM(currentPlayer) {
     $('.questions__current--player--name').html(currentPlayer);
