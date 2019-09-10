@@ -69,7 +69,7 @@ export default {
   appendDailyDouble() {
     $('.questions__current--question--daily--double--container').append(`
     <p class="questions__current--question--daily--double"> DAILY DOUBLE! </p>
-    <input class='questions__--daily--double--input' type='text' placeholder='Wager'>
+    <input class='questions__--daily--double--input' type='text' placeholder='   Enter Wager'>
     <button class='questions__--daily--double--button'>Submit Wager</button>`);
   },
 
