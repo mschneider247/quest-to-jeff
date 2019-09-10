@@ -78,10 +78,12 @@ class Game {
       console.log('ISS ROUND TWO MODAFUCKAAAAAAAA!')
       this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.roundCounter);
       domUpdates.removePreviousRound();
-      domUpdates.hideFeedback();
+      // domUpdates.hideFeedback(); 
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter)
       domUpdates.appendCurrentRound(this.roundCounter);
-      domUpdates.appendRoundBanner(this.roundCounter);
+      setTimeout(function() {
+        domUpdates.appendRoundBanner(2);
+      },2000)
       this.roundCounter++;
       // on dom updates we change the point value board
     } else if (this.roundCounter > 2) {

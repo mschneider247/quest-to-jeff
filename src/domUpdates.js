@@ -91,10 +91,10 @@ export default {
     }, 850)
   },
 
-  hideFeedback() {
-    $(".answer-incorrect-banner").hide();
-    $(".answer-correct-banner").hide();
-  },
+  // hideFeedback() {
+  //   $(".answer-incorrect-banner").hide();
+  //   $(".answer-correct-banner").hide();
+  // },
 
   appendDailyDouble() {
     $('.questions__current--question--daily--double--container').append(`
