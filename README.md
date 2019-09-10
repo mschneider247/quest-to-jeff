@@ -5,15 +5,17 @@ A Quest For Jeff is a Jeopardy based game. We have three players and three round
 ## Created by:
 [Amanda Consuelo Sierra](https://github.com/Asilo5), 
 [Michael Schneider](https://github.com/mschneider247), 
-[Foster Taylor](https://github.com/foster55f), and  
+[Foster Taylor](https://github.com/foster55f),  
 [Matthew Malone](https://github.com/matthewdshepherd)
 
 ## Play Our Game!
 
-Clone our repo to your local computer:
-``` $ git clone https://github.com/mschneider247/quest-to-jeff.git ```
+Clone our repo to your local computer:``` $ git clone https://github.com/mschneider247/quest-to-jeff.git ```
+
 Run ``` $ npm install ``` in your terminal
+
 To open the game run ``` $ npm start ```
+
 Copy ``` http://localhost:8080/ ``` to paste it on your tab and you're ready to play!
 
 ## How we built it
