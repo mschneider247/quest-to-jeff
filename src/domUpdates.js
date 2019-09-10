@@ -55,7 +55,9 @@ export default {
   }, 
 
   updatePlayersMarker(currentPlayer, nextPlayer) {
+    $(`.player__${currentPlayer}`).removeClass('highlight-border');
     $(`#player__${currentPlayer}--marker`).fadeOut();
+    $(`.player__${nextPlayer.id}`).addClass('highlight-border');
     $(`#player__${nextPlayer.id}--marker`).fadeIn();
   },
 
