@@ -11,7 +11,7 @@ class Round {
       this.currentClues = data;
     }
     this.turnCounter = 0;
-    this.dailyDouble = Math.ceil(Math.random() * 16);
+    this.dailyDouble = Math.ceil(Math.random() * 4);
     this.dailyDoubleTwo = Math.ceil(Math.random() * 16);
     this.currentPlayer = game.players[0];
     this.game = game;
@@ -22,8 +22,8 @@ class Round {
   }
 
   checkDailyDouble() {
-    return true
-    // return (this.turnCounter === this.dailyDouble);
+    // return true
+    return (this.turnCounter === this.dailyDouble);
   }
 
   doubleClueScores(data) {
@@ -75,7 +75,7 @@ class Round {
 
 
   getToNextRound() {
-    if (this.turnCounter === 1) {
+    if (this.turnCounter === 4) {
       // end the round and take it to the next
       // was thinking of invoking new round here
       console.log('this is line 62 of Round ', this.game);
@@ -90,6 +90,9 @@ class Round {
   getPlayerAnswer(playersAnswer) {
     let isCorrect = this.clue.checkAnswer(playersAnswer); 
     // this.turnCounter ++;
+    console.log('line 97 round: ', this.currentPlayer.score)
+    console.log('this.clue.pValue: ', this.clue.pValue)
+
     if (isCorrect === true) {
       domUpdates.appendPlayerCorrectAnswer();
       this.turnCounter++;

@@ -14,6 +14,8 @@ class Clue {
     if (this.dailyDouble) {
       domUpdates.appendDailyDouble();
       return pValue
+    } else {
+      return pValue
     }
   }
 
