@@ -24,6 +24,13 @@ $('.questions__current--question--answer--input').keyup(function() {
   }
 });
 
+$('.questions__current--question').keyup(function() {
+  if (
+    $('.questions__--daily--double--input').val() !== '') {
+    $('.questions__--daily--double--button').prop('disabled', false);
+  }
+}); 
+
 $('.start-game-btn').click(function(e) {
   e.preventDefault();
   let player1 = $('#player__one--name-input').val();
