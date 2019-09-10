@@ -3,11 +3,10 @@
 A Quest For Jeff is a Jeopardy based game. We have three players and three rounds, each player has one turn to answer the question either right or wrong. The player with the highest score gets to meet Jeff, which Jeff though? Play the game and find out!
 
 ## Created by:
-
-([Amanda Consuelo Sierra] (https://github.com/Asilo5))
-([Michael Schneider] (https://github.com/mschneider247))
-([Foster Taylor] (https://github.com/foster55f)) 
-([Matthew Malone] (https://github.com/matthewdshepherd))
+([Amanda Consuelo Sierra](https://github.com/Asilo5))
+([Michael Schneider](https://github.com/mschneider247))
+([Foster Taylor](https://github.com/foster55f)) 
+([Matthew Malone](https://github.com/matthewdshepherd))
 
 ## Play Our Game!
 
