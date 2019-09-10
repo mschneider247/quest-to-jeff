@@ -82,7 +82,7 @@ export default {
   appendRoundBanner(round) {
     $('main').hide();
     $(".round-banner").show();
-    $('.banner-header').html(`Welcome to Round ${round + 1}!!!`)
+    $('.banner-header').html(`Welcome to Round ${round}!!!`)
     setTimeout(function() {
       $('main').show();
       $(".round-banner").hide();
