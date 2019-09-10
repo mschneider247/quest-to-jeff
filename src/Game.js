@@ -68,7 +68,7 @@ class Game {
 
   startRound(game) {
     if (this.roundCounter === 1) {
-      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.roundCounter);
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter);
       domUpdates.appendCurrentPlayerToDOM(this.round.currentPlayer.name);
       domUpdates.appendCurrentRound(this.roundCounter);
@@ -76,7 +76,7 @@ class Game {
       // append round on domUpdates
     } else if (this.roundCounter === 2) {
       console.log('ISS ROUND TWO MODAFUCKAAAAAAAA!')
-      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.round);
+      this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.roundCounter);
       domUpdates.removePreviousRound();
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter)
       domUpdates.appendCurrentRound(this.roundCounter);

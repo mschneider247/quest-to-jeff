@@ -5,11 +5,7 @@ import domUpdates from "./domUpdates";
 
 class Round {
   constructor(data, game, fourCategories, currentRound) {
-    if (currentRound === 2) {
-      this.currentClues = this.doubleCluesScore(data);
-    } else {
-      this.currentClues = data;
-    }
+    this.currentClues = this.doubleClueScores(data, currentRound);
     this.turnCounter = 0;
     this.dailyDouble = Math.ceil(Math.random() * 4);
     this.dailyDoubleTwo = Math.ceil(Math.random() * 16);
@@ -22,13 +18,12 @@ class Round {
   }
 
   checkDailyDouble() {
-    // return true
     return (this.turnCounter === this.dailyDouble);
   }
 
-  doubleClueScores(data) {
+  doubleClueScores(data, currentRound) {
     return data.map((clue) => {
-      clue.pointValue *= 2;
+      clue.pointValue *= currentRound;
       return clue;
     })
   }
