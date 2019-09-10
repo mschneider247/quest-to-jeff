@@ -27,20 +27,12 @@ $('.questions__current--question--answer--input').keyup(function() {
   }
 });
 
-// $('.questions__current--question').keyup(function() {
-//   if (
-//     ($('.questions__--daily--double--input').val() !== '') && (event.target.class === 'questions__--daily--double--input') ) {
-//     $('.questions__--daily--double--button').prop('disabled', false);
-//   }
-// }); 
-
-// $('.questions__--daily--double--input').keyup(function() {
-//   console.log('detecting keyup')
-//   if (
-//     $('.questions__--daily--double--input').val() !== '') {
-//     $('.questions__--daily--double--button').prop('disabled', false);
-//   }
-// }); 
+$('.questions__current--question').keyup(function() {
+  if (
+    $('.questions__--daily--double--input').val() !== '') {
+    $('.questions__--daily--double--button').prop('disabled', false);
+  }
+}); 
 
 $('.start-game-btn').click(function(e) {
   e.preventDefault();

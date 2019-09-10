@@ -86,7 +86,7 @@ export default {
     setTimeout(function() {
       $('main').show();
       $(".round-banner").hide();
-    }, 2000)
+    }, 850)
   },
 
   hideFeedback() {
@@ -98,7 +98,7 @@ export default {
     $('.questions__current--question--daily--double--container').append(`
     <p class="questions__current--question--daily--double"> DAILY DOUBLE! </p>
     <input class='questions__--daily--double--input'  type=”number” placeholder='    Wager'>
-    <button class='questions__--daily--double--button'>Submit Wager</button>`);
+    <button class='questions__--daily--double--button' disabled = "true">Submit Wager</button>`);
   },
 
   removePreviousRound() {
