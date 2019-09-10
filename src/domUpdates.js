@@ -36,7 +36,9 @@ export default {
   },
 
   appendQuestionToDOM(question, value, dailyDouble) {
+    $('.questions__current--question--submit--btn').prop('disabled', true);
     if (dailyDouble === true) {
+      // $('.questions__--daily--double--button').prop('disabled', true); 
       $('.questions__current--question--prompt').hide(question);
     } else {
       $('.questions__current--question--prompt').html(question);

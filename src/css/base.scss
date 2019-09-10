@@ -218,12 +218,15 @@ h1 {
   display: none;  
   top: 15%;
   left: 25%;
-  background-color: $extra-transparent;
-  color: $primary-white;
-  border: 1px solid $incorrect;
-  height: 40px;
-  width: 240px; 
+  background-color: $transparent-background;
+  color: $primary-black;
+  border: 2px solid $incorrect;
+  height: 100px;
+  width: 500px; 
   padding: 2%;
+  font-size: 2em;
+  padding-bottom: 4%;
+  border-radius: 15px;
 }
 
 .questions {
