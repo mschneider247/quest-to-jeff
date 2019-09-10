@@ -59,7 +59,7 @@ $('.round__div').on('click', (event) => {
     $(".questions__current--question").show();
     $(".answer-incorrect-banner").hide();
     $(".answer-correct-banner").hide();
-    $(nearestButton).prop('disabled', true);
+    $(nearestButton).prop('disabled', true).addClass("disabled");
   }
 
   if (event.target.id === 'catagory-1') {

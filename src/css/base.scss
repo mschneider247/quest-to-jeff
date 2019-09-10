@@ -305,6 +305,21 @@ h1 {
   }
 }
 
+.round__point--value{
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.player__name,
+.player__score,
+.player__points {
+  cursor: default;
+}
+
 @media only screen and (max-width: 850px) {
 
   body {
@@ -314,6 +329,7 @@ h1 {
   .round__catagory--prompt {
     margin-bottom: 20%;
   }
+  
 
   .round__div {
     margin-right: 0;
