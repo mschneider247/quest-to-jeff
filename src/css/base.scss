@@ -39,6 +39,8 @@ body {
     }
   }
 
+  .about-game
+
   button {
     margin-top: 5%;
     margin-left: 5%;
@@ -56,7 +58,7 @@ main {
   "question question round";
   box-sizing: border-box;
   grid-template-columns: 30% 40% 30%;
-  grid-template-rows: 20% 60% 20%;
+  grid-template-rows: 20% 40% 40%;
 }
 
 header {
@@ -65,7 +67,7 @@ header {
   font-size: 1.2em;
 }
 
-.header {
+.main__header {
   margin-left: 13%;
 }
 
@@ -82,29 +84,6 @@ header button {
 
 .header__btn:hover {
   transform: scale(1.1);
-}
-
-.answer-incorrect-banner {
-  border: 5px solid $incorrect;
-  color: rgb(71, 0, 0);
-}
-
-.answer-correct-banner {
-  color: rgb(0, 44, 0);
-  border: 5px solid green;
-}
-
-.answer-incorrect-banner,
-.answer-correct-banner {
-  margin-top: 5%;
-  margin-left: 10%;
-  width: 80%;
-  border-radius: 15px;
-  background-color: $extra-transparent;
-  grid-area: question;
-  padding: 20px;
-  display: none;
-  text-align: center;
 }
 
 .player {
@@ -205,7 +184,7 @@ h1 {
   text-align: center;
   color: $white-white;
   font-size: 18px;
-  margin-bottom: 9%;
+  margin-bottom: 12%;
 }
 
 .round__point--value {
@@ -255,18 +234,47 @@ h1 {
   margin-top: 3%;
   margin-left: 5%;
   width: 80%;
-  color: $primary-black;
-  background-color: $transparent-background;
+  color: $primary-white;
+  background-color: $extra-transparent;
   border-radius: 5px;
   border: 2px solid $primary-white;
   grid-area: question;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  padding: 5%;
+}
+
+.questions__current--question--title {
+  margin: 0;
+}
+
+.answer-incorrect-banner,
+.answer-correct-banner {
+  margin-top: 15%;
+  margin-left: 5%;
+  width: 80%;
+  border-radius: 5px;
+  background-color: $extra-transparent;
+  grid-area: question;
+  padding: 5%;
+  display: none;
+  text-align: center;
+}
+
+.answer-incorrect-banner {
+  border: 5px solid $incorrect;
+  color: $white-white;
+}
+
+.answer-correct-banner {
+  color: $white-white;
+  border: 5px solid rgb(0, 65, 0);
 }
 
 .wager--err {
-  color: red;
+  color: rgb(180, 0, 0);
   font-size: 10px;
   font-weight: 300;
 }
@@ -286,10 +294,21 @@ h1 {
   }
 }
 
+@media only screen and (max-width: 1150px) {
+
+  .round__catagory--prompt {
+    margin-bottom: 17%;
+  }
+}
+
 @media only screen and (max-width: 850px) {
 
   body {
     background-size: 850px;
+  }
+
+  .round__catagory--prompt {
+    margin-bottom: 20%;
   }
 
   .round__div {
