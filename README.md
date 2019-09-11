@@ -34,3 +34,6 @@ To build our game, we used:
 
 ![giff of A Quest To Jeff](https://github.com/mschneider247/quest-to-jeff/blob/master/quest.gif)
 
+## Background Illustration Progression
+
+![Background Progression](./src/images/JeffQuestBackgroundProgression.jpg)
