@@ -79,10 +79,20 @@ export default {
   },
 
   appendDailyDouble() {
+    $('.questions__current--question--title').hide();
+    $('.questions__current--question--answer--input').hide();
+    $('.questions__current--question--submit--btn').hide();
     $('.questions__current--question--points').before(`<div class='questions__current--question--daily--double--container'>
     <p class="questions__current--question--daily--double"> DAILY DOUBLE! </p>
     <input class='questions__--daily--double--input'  type=”number” placeholder='    Wager'>
     <button class='questions__--daily--double--button' disabled = "true">Submit Wager</button></div>`);
+  },
+
+  displayQuestionContainer() {
+    $('.questions__current--question--title').show();
+    $('.questions__current--question--answer--input').show();
+    $('.questions__current--question--submit--btn').show();
+    $('.questions__current--question--daily--double--container').hide();
   },
 
   removePreviousRound() {

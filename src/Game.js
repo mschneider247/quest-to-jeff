@@ -8,7 +8,7 @@ class Game {
     this.categories = this.createCategories(data.categories)
     this.clues = data.clues;
     this.players = [];
-    this.roundCounter = 1; // goes up to 3
+    this.roundCounter = 1; 
     this.round;
     this.roundTwo;
     this.fourCategories;
@@ -84,6 +84,7 @@ class Game {
       },2000)
       this.roundCounter++;
     } else if (this.roundCounter > 2) {
+
     }
   }
 
