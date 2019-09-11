@@ -5,8 +5,8 @@ class Round {
   constructor(data, game, fourCategories, currentRound) {
     this.currentClues = this.doubleClueScores(data, currentRound);
     this.turnCounter = 1;
-    this.dailyDouble = Math.ceil(Math.random() * 16);
-    this.dailyDoubleTwo = Math.ceil(Math.random() * 8);
+    this.dailyDouble = Math.ceil(Math.random() * 16); 
+    this.dailyDoubleTwo = Math.ceil(Math.random() * 8); 
     this.dailyDoubleThree = (Math.ceil(Math.random() * 8)) + 8;
     this.currentPlayer = game.players[0];
     this.game = game;
@@ -64,7 +64,7 @@ class Round {
   }
 
   getToNextRound() {
-    if (this.turnCounter === 17) {
+    if (this.turnCounter === 17) { 
       this.game.startRound(this.game);
     } 
   }

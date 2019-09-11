@@ -1,12 +1,11 @@
-
 import $ from 'jquery';
 import './css/base.scss';
 import domUpdates from "./domUpdates";
-
 import Game from './Game';
+
+let game;
 $('#player__2--marker').hide();
 $('#player__3--marker').hide();
-let game;
 
 $('.main-game').hide();
 
@@ -24,7 +23,7 @@ $('.questions__current--question--answer--input').keyup(function() {
   }
 });
 
-$('.questions').keyup(function(e) {
+$('.questions').keyup(function() {
   if (
     $('.questions__--daily--double--input').val() !== '') {
     $('.questions__--daily--double--button').prop('disabled', false);
@@ -100,7 +99,8 @@ $('.questions__current--question').unbind().on('click', (event) => {
       $('.questions__current--question--daily--double--container').hide();
       findHighestRemainingValue();
     }
-    $('.questions__--daily--double--input').val('')
+    $('.questions__--daily--double--input').val('');
+    domUpdates.displayQuestionContainer();
   }
 }) 
 
