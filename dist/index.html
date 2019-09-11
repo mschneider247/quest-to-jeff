@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>A Quest For Jeff</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body> 
+    <section class='welcome-banner'>
+      <h2 class='header'>A Quest For Jeff</h2>
+      <h3 class='about-game'> A Quest for Jeff is a Jeopardy based game where the players have to follow a map to get to each round. The player with the highest score gets to meet Jeff!</h3>
+      <form>
+          <input type="text" id="player__one--name-input" class="name-input" placeholder="    Enter Your Name Here">
+          <input type="text" id="player__two--name-input" class="name-input" placeholder="    Enter Your Name Here">
+          <input type="text" id="player__three--name-input" class="name-input" placeholder="    Enter Your Name Here">
+          <button class="start-game-btn" disabled="true">Let's find Jeff!</button>
+      </form>
+    </section> 
+    <section class='round-banner'>
+      <h2 class='banner-header'></h2>
+  </section>
+   <main class='main-game'>
+    <header>
+        <h1 class="main__header">A Quest For Jeff</h1>
+        <button class="header__btn">Restart Game</button>
+    </header>
+    <section class="player">
+      <container class="player__1 player--score highlight-border">
+        <p class="player__name" id="player__1--name">Name</p>
+        <p class="player__score" id="player__1--score">Score</p>
+        <p class="player__points" id="player__1--points">POINTS</p>
+        <h4 id="player__1--marker" class="player-marker">☝️</h4>
+      </container>
+      <container class="player__2 player--score">
+        <p class="player__name" id="player__2--name">Name</p>
+        <p class="player__score" id="player__2--score">Score</p>
+        <p class="player__points" id="player__2--points">POINTS</p>
+        <h4 id="player__2--marker" class="player-marker">☝️</h4>
+      </container>
+      <container class="player__3 player--score">
+        <p class="player__name" id="player__3--name">Name</p>
+        <p class="player__score" id="player__3--score">Score</p>
+        <p class="player__points" id="player__3--points">POINTS</p>
+        <h4 id="player__3--marker" class="player-marker">☝️</h4>
+      </container>
+    </section>
+    <section class="round">
+      <div class="round__div">
+        <h3 class="round__current--title"> Current Round: <span class="round__current--num">1</span></h3>
+        <p class="round__catagory--prompt">Select a Catagory!</p>
+      </div>
+    </section> 
+    <section class="questions">
+        <section class='answer-incorrect-banner'>
+            <h2 class='header'>You Answered Incorrect! The correct Answer was...</h2>
+            <h3 class='about-game'></h3>
+          </section> 
+          <section class='answer-correct-banner'>
+              <h2 class='header'>Great Job!</h2>
+              <h3 class='about-game'> You're right!</h3>
+          </section>
+      <container class="questions__current--question">
+        <p class="questions__current--question--points"></p>
+        <p class="questions__current--question--title"></p>
+        <input class="questions__current--question--answer--input" type="text" placeholder="   Type Answer">
+        <button class="questions__current--question--submit--btn" disabled = "true">Submit Answer</button>
+      </container>
+    </section>
+   </main>
+
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
