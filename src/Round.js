@@ -1,21 +1,19 @@
 import Clue from "./Clue";
 import domUpdates from "./domUpdates";
 
-// import $ from 'jquery';
-
 class Round {
   constructor(data, game, fourCategories, currentRound) {
     this.currentClues = this.doubleClueScores(data, currentRound);
     this.turnCounter = 1;
-    this.dailyDouble = Math.ceil(Math.random() * 4);
-    this.dailyDoubleTwo = Math.ceil(Math.random() * 4);
+    this.dailyDouble = Math.ceil(Math.random() * 16);
+    this.dailyDoubleTwo = Math.ceil(Math.random() * 8);
+    this.dailyDoubleThree = (Math.ceil(Math.random() * 8)) + 8;
     this.currentPlayer = game.players[0];
     this.game = game;
     this.fourCategories = fourCategories;
     this.clue;
     this.currentRound = currentRound;
     this.wager;
-    console.log(this.dailyDouble)
   }
 
   checkDailyDouble() {
@@ -30,10 +28,7 @@ class Round {
   }
 
   checkBothDailyDoubles() {
-    console.log('checking both daily doubles')
-    console.log('this.dailyDouble: ', this.dailyDouble, this.dailyDoubleTwo)
-    console.log('this is checking both daily doubles', this.turnCounter === this.dailyDouble || this.turnCounter === this.dailyDoubleTwo)
-    return (this.turnCounter === this.dailyDouble || this.turnCounter === this.dailyDoubleTwo);
+    return (this.turnCounter === this.dailyDoubleThree || this.turnCounter === this.dailyDoubleTwo);
   }
 
   getClue(categoryId, pValue) {
@@ -46,17 +41,13 @@ class Round {
   }
 
   turn(categoryId, pointValueId) { 
-    console.log('turn inputs', categoryId, pointValueId, this.currentRound)
-    console.log('Round turn Method', this.turnCounter);
-    
-    // user input
     if (this.currentRound === 2) {
-      console.log('making new instance of clue for ROUND TWO')
       this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkBothDailyDoubles());
+      domUpdates.appendQuestionToDOM(this.clue.question, this.clue.pValue, this.checkBothDailyDoubles());
     } else {
       this.clue = new Clue(this.getClue(categoryId, pointValueId), this.checkDailyDouble());
+      domUpdates.appendQuestionToDOM(this.clue.question, this.clue.pValue, this.checkDailyDouble());
     }
-    domUpdates.appendQuestionToDOM(this.clue.question, this.clue.pValue, this.checkDailyDouble());
   }
 
   nextPlayer() {
@@ -72,26 +63,14 @@ class Round {
     }
   }
 
-
   getToNextRound() {
-    if (this.turnCounter === 4) {
-      // end the round and take it to the next
-      // was thinking of invoking new round here
-      console.log('this is line 62 of Round ', this.game);
+    if (this.turnCounter === 17) {
       this.game.startRound(this.game);
     } 
   }
 
-  appendCategoriesToDOM() {
-
-  }
-
   getPlayerAnswer(playersAnswer) {
     let isCorrect = this.clue.checkAnswer(playersAnswer); 
-    // this.turnCounter ++;
-    console.log('line 97 round: ', this.currentPlayer.score)
-    console.log('this.clue.pValue: ', this.clue.pValue)
-
     if (isCorrect === true) {
       domUpdates.appendPlayerCorrectAnswer();
       this.turnCounter++;
