@@ -23,11 +23,8 @@ $('.questions__current--question--answer--input').keyup(function() {
   }
 });
 
-$('.questions').keyup(function() {
-  if (
-    $('.questions__--daily--double--input').val() !== '') {
-    $('.questions__--daily--double--button').prop('disabled', false);
-  }
+$('.questions').keyup(function(e) {
+  $('.questions__--daily--double--button').prop('disabled', false);
 }); 
 
 $('.start-game-btn').click(function(e) {
