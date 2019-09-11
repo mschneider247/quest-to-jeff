@@ -32,5 +32,5 @@ To build our game, we used:
   
 ## Giff of our game
 
-![giff of A Quest To Jeff]()
+![giff of A Quest To Jeff](https://github.com/mschneider247/quest-to-jeff/blob/master/quest.gif)
 
