@@ -75,29 +75,21 @@ class Game {
       domUpdates.appendCurrentRound(this.roundCounter);
       this.roundCounter++;
     } else if (this.roundCounter === 2) {
-      console.log('ISS ROUND TWO MODAFUCKAAAAAAAA!')
       this.round = new Round(this.getCluesForRound(), game, this.fourCategories, this.roundCounter);
       domUpdates.removePreviousRound();
-      // domUpdates.hideFeedback(); 
       domUpdates.appendCategoriesToDOM(this.round.fourCategories, this.roundCounter)
       domUpdates.appendCurrentRound(this.roundCounter);
       setTimeout(function() {
         domUpdates.appendRoundBanner(2);
       },2000)
       this.roundCounter++;
-      // on dom updates we change the point value board
     } else if (this.roundCounter > 2) {
-      // start round 3
-      // this.round.current clues[0]
-      // have just one category and one question
-      // method that allows all players for a wager 
     }
   }
 
   displayWinner() {
     let findWinner = this.players.sort((a, b) => b.score - a.score).shift();
-    // display winner on dom with domUpdates 
-    return findWinner; // may break test once we get scores
+    return findWinner; 
   }
 
 } 

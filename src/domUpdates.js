@@ -6,7 +6,7 @@ export default {
       $(`#player__${player.id}--name`).text(player.name);
       $(`#player__${player.id}--score`).text(player.score);
     })
-  }, // have a comma inbetween each function
+  },
 
   appendAnswerBannerToDOM(players) {
     players.forEach((player) => {
@@ -14,7 +14,6 @@ export default {
       $(`#player__${player.id}--score`).text(player.score);
     })
   },
-
 
   updatePlayersScore(playerID, currentScore) {
     $(`#player__${playerID}--score`).text(currentScore)
@@ -69,11 +68,6 @@ export default {
     }, 2000)
   },
 
-  // appendPlayerWrongAnswer(clue) {
-  //   $(".answer-incorrect-banner").find('h3').html(clue.answer)
-  //   $(".answer-incorrect-banner").show();
-  // },
-
   appendRoundBanner(round) {
     $('main').hide();
     $(".round-banner").show();
@@ -84,16 +78,11 @@ export default {
     }, 850)
   },
 
-  // hideFeedback() {
-  //   $(".answer-incorrect-banner").hide();
-  //   $(".answer-correct-banner").hide();
-  // },
-
   appendDailyDouble() {
-    $('.questions__current--question--daily--double--container').append(`
+    $('.questions__current--question--points').before(`<div class='questions__current--question--daily--double--container'>
     <p class="questions__current--question--daily--double"> DAILY DOUBLE! </p>
     <input class='questions__--daily--double--input'  type=”number” placeholder='    Wager'>
-    <button class='questions__--daily--double--button' disabled = "true">Submit Wager</button>`);
+    <button class='questions__--daily--double--button' disabled = "true">Submit Wager</button></div>`);
   },
 
   removePreviousRound() {

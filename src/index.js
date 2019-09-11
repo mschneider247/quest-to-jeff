@@ -24,7 +24,7 @@ $('.questions__current--question--answer--input').keyup(function() {
   }
 });
 
-$('.questions__current--question').keyup(function() {
+$('.questions').keyup(function(e) {
   if (
     $('.questions__--daily--double--input').val() !== '') {
     $('.questions__--daily--double--button').prop('disabled', false);
@@ -42,9 +42,8 @@ $('.start-game-btn').click(function(e) {
     .catch(err => console.log(err));
   $('.welcome-banner').hide();
   $('.main-game').fadeIn('swing');
-    $(".questions__current--question--prompt").hide();
-    $(".questions__current--question").hide();
-  
+  $(".questions__current--question--prompt").hide();
+  $(".questions__current--question").hide();
 })
 
 function gameStart(data, player1, player2, player3) {
@@ -59,10 +58,8 @@ $('.round__div').on('click', (event) => {
     let pointValueID = event.target.dataset.id;
     let nearestButton = event.target.closest('#point')
     if (game.roundCounter === 2) {
-      console.log('point selected in round 2', categoryID, pointValueID)
       game.round.turn(categoryID, pointValueID);
     } else {
-      console.log('point selected in round 1', categoryID, pointValueID)
       game.round.turn(categoryID, pointValueID);
     }
     $(".questions__current--question").show();
@@ -72,32 +69,27 @@ $('.round__div').on('click', (event) => {
   }
 
   if (event.target.id === 'catagory-1') {
-    console.log('class 1')
     $(".round__point--container").not($(event.target).next()).slideUp();
     $(event.target).next().slideToggle('fast')
-    
   }
 
   if (event.target.id === 'catagory-2') {
-    console.log('class 2')
     $(".round__point--container").not($(event.target).next()).slideUp();
     $(event.target).next().slideToggle('fast')
   }
 
   if (event.target.id === 'catagory-3') {
-    console.log('class 3')
     $(".round__point--container").not($(event.target).next()).slideUp();
     $(event.target).next().slideToggle('fast')
   }
 
   if (event.target.id === 'catagory-4') {
-    console.log('class 4')
     $(".round__point--container").not($(event.target).next()).slideUp();
     $(event.target).next().slideToggle('fast')
   }
 })
 
-$('.questions__current--question--daily--double--container').unbind().on('click', (event) => {
+$('.questions__current--question').unbind().on('click', (event) => {
   if (event.target.className === 'questions__--daily--double--button') {
     if (parseInt($('.questions__--daily--double--input').val()) > parseInt(highestWagerPossible())) {
       domUpdates.appendTooHighWagerErr()
@@ -105,9 +97,7 @@ $('.questions__current--question--daily--double--container').unbind().on('click'
       game.round.clue.pValue = parseInt($('.questions__--daily--double--input').val())
       $('.questions__current--question--points').after(`<h2 class="questions__current--question--points--actual">Points: ${game.round.clue.pValue}</h2>`);
       $('.questions__current--question--title').after(`<h4 class="questions__current--question--prompt">Question: ${game.round.clue.question}</h4>`);
-
-      $('.questions__current--question--daily--double--container').remove();
-
+      $('.questions__current--question--daily--double--container').hide();
       findHighestRemainingValue();
     }
     $('.questions__--daily--double--input').val('')
@@ -138,13 +128,9 @@ $('.questions__current--question--submit--btn').click(function() {
   $(".questions__current--player").hide();
   $('.questions__current--question--prompt').remove();
   $('.questions__current--question--points--actual').remove();
-  
   game.round.getPlayerAnswer(playersAnswer);
-
 });
 
 function clearAnswerField() {
   $(".questions__current--question--answer--input").val('');
 }
-
-console.log('This is the JavaScript entry file - your code begins here.');
