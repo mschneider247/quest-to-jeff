@@ -10,7 +10,7 @@ A Quest For Jeff is a Jeopardy based game. We have three players and three round
 
 ## Play Our Game!
 
-View our live site<a href=https://mschneider247.github.io/quest-to-jeff/src/index.html> here </a> on Github.
+View our live site<a href=https://mschneider247.github.io/quest-to-jeff> here </a> on Github.
 
 Check out the live page: []https://mschneider247.github.io/quest-to-jeff/
 
